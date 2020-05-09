@@ -1,4 +1,4 @@
 # umenoki
 Umenoki App
 
-![ScreenShot](/screenshots/screenshot1)
+![ScreenShot](/screenshots/screenshot1.png)
