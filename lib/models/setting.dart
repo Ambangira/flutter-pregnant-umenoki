@@ -1,14 +1,16 @@
-class Setting {
-  String id;
-  String name;
+import 'package:cloud_firestore/cloud_firestore.dart';
+final databaseReference = Firestore.instance;
 
-  Setting({this.id, this.name});
-  Setting.fromMap(Map snapshot, String id) :
-    id = id ?? '',
-    name = snapshot['name'] ?? '';
-  toJson() {
-    return {
-      'name': name,
-    };
-  }
+void saveSetting() async {
+  await databaseReference.collection("settings")
+      .document("1")
+      .setData({
+        'name': 'Mastering Flutter',
+      });
+
+  DocumentReference ref = await databaseReference.collection("settings")
+      .add({
+        'name': 'Flutter in Action',
+      });
+  print(ref.documentID);
 }
