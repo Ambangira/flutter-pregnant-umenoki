@@ -7,7 +7,7 @@
 ///
 
 import 'package:flutter/material.dart';
-import 'app_theme.dart';
+import 'package:umenoki/app_theme.dart';
 import 'package:umenoki/pages/main_baby_page.dart';
 import 'package:umenoki/pages/main_health_page.dart';
 import 'package:umenoki/pages/main_journey_page.dart';
