@@ -12,6 +12,8 @@ import 'package:umenoki/widgets/custom_input.dart';
 import 'package:umenoki/widgets/custom_switch.dart';
 import 'package:umenoki/widgets/custom_radio.dart';
 
+import 'package:umenoki/models/setting.dart';
+
 class SettingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -34,7 +36,7 @@ class SettingPage extends StatelessWidget {
             icon: Text("Save", style: AppTheme.title,),
             iconSize: 50.0,
             onPressed: (){
-              
+              saveSetting();
             },
           ),
         ],
