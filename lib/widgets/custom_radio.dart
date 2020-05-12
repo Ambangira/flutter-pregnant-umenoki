@@ -1,12 +1,12 @@
 ///
-/// Project name : Umeniko
+/// Project name : Umenoki
 /// Description : The class is defined the custom radio group button for setting page.
 /// Author : Xiao
 /// Date : 2020-04-26
 ///
 
 import 'package:flutter/material.dart';
-import 'package:umeniko/app_theme.dart';
+import 'package:umenoki/app_theme.dart';
 
 class CustomRadioButton extends StatefulWidget {
   CustomRadioButton({

@@ -1,5 +1,5 @@
 ///
-/// Project name : Umeniko
+/// Project name : Umenoki
 /// Description : This Widget is the main application widget.
 ///               This page defined the basic menu and app bar.
 /// Author : Xiao
@@ -7,13 +7,13 @@
 ///
 
 import 'package:flutter/material.dart';
-import 'package:umeniko/app_theme.dart';
-import 'package:umeniko/pages/main_baby_page.dart';
-import 'package:umeniko/pages/main_health_page.dart';
-import 'package:umeniko/pages/main_journey_page.dart';
-import 'package:umeniko/pages/main_me_page.dart';
-import 'package:umeniko/pages/main_nutrition_page.dart';
-import 'package:umeniko/pages/setting_page.dart';
+import 'app_theme.dart';
+import 'package:umenoki/pages/main_baby_page.dart';
+import 'package:umenoki/pages/main_health_page.dart';
+import 'package:umenoki/pages/main_journey_page.dart';
+import 'package:umenoki/pages/main_me_page.dart';
+import 'package:umenoki/pages/main_nutrition_page.dart';
+import 'package:umenoki/pages/setting_page.dart';
 
 void main() {
   return runApp(MainApp());
@@ -23,7 +23,7 @@ final scakey = new GlobalKey<_MainWidgetState>();
 
 /// This Widget is the main application widget.
 class MainApp extends StatelessWidget {
-  static const String _title = 'Umeniko';
+  static const String _title = 'Umenoki';
 
   @override
   Widget build(BuildContext context) {

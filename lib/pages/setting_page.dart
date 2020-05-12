@@ -1,16 +1,16 @@
 ///
-/// Project name : Umeniko
+/// Project name : Umenoki
 /// Description :
 /// Author : Xiao
 /// Date : 2020-04-26
 ///
 
 import 'package:flutter/material.dart';
-import 'package:umeniko/app_theme.dart';
-import 'package:umeniko/main.dart';
-import 'package:umeniko/widgets/custom_input.dart';
-import 'package:umeniko/widgets/custom_switch.dart';
-import 'package:umeniko/widgets/custom_radio.dart';
+import 'package:umenoki/app_theme.dart';
+import 'package:umenoki/main.dart';
+import 'package:umenoki/widgets/custom_input.dart';
+import 'package:umenoki/widgets/custom_switch.dart';
+import 'package:umenoki/widgets/custom_radio.dart';
 
 class SettingPage extends StatelessWidget {
   @override

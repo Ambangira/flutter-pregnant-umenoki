@@ -1,13 +1,13 @@
 ///
-/// Project name : Umeniko
+/// Project name : Umenoki
 /// Description : This is the first page you encounter when you start the app.
 /// Author : Xiao
 /// Date : 2020-04-26
 ///
 
 import 'package:flutter/material.dart';
-import 'package:umeniko/app_theme.dart';
-import 'package:umeniko/main.dart';
+import 'package:umenoki/app_theme.dart';
+import 'package:umenoki/main.dart';
 
 /// This Widget is the main application widget.
 class BabyPage extends StatelessWidget {

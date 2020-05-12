@@ -1,5 +1,5 @@
 ///
-/// Project name : Umeniko
+/// Project name : Umenoki
 /// Description : It's defined the colors, fonts, and font styles used by default in the app.
 /// Author : Xiao
 /// Date : 2020-04-26

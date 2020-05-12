@@ -1,5 +1,5 @@
 ///
-/// Project name : Umeniko
+/// Project name : Umenoki
 /// Description : The class is defined the custom switch for setting page.
 /// Author : Xiao
 /// Date : 2020-04-26

@@ -1,5 +1,5 @@
 ///
-/// Project name : Umeniko
+/// Project name : Umenoki
 /// Description :
 /// Author : Xiao
 /// Date : 2020-04-26
@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 
 /// This Widget is the main application widget.
 class JourneyPage extends StatelessWidget {
-  static const String _title = 'Umeniko';
+  static const String _title = 'Umenoki';
 
   @override
   Widget build(BuildContext context) {

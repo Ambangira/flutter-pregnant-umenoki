@@ -1,6 +1,6 @@
 
 ///
-/// Project name : Umeniko
+/// Project name : Umenoki
 /// Description : The class is defined the custom input field for setting page.
 /// Author : Xiao
 /// Date : 2020-04-26
