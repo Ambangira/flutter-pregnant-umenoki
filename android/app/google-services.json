@@ -1,35 +1,42 @@
 {
   "project_info": {
-    "project_number": "203029952995",
-    "firebase_url": "https://umenoki-4d4a2.firebaseio.com",
-    "project_id": "umenoki-4d4a2",
-    "storage_bucket": "umenoki-4d4a2.appspot.com"
+    "project_number": "576079503032",
+    "firebase_url": "https://umenoki-9b44e.firebaseio.com",
+    "project_id": "umenoki-9b44e",
+    "storage_bucket": "umenoki-9b44e.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:203029952995:android:ca4fef8a1e862dabbd88d6",
+        "mobilesdk_app_id": "1:576079503032:android:5dfac8319f31d369af1e4d",
         "android_client_info": {
-          "package_name": "com.raywenderlich.pet_medical"
+          "package_name": "com.xiao.umenoki"
         }
       },
       "oauth_client": [
         {
-          "client_id": "203029952995-7usiagfd0rn8j3ilo08ahu4smptk1g5a.apps.googleusercontent.com",
+          "client_id": "576079503032-jkjutrnakal0emruc0g5k52f0i8dcb71.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDacFAor7IT_Odamjkn7GdeCuMWCm9TPmM"
+          "current_key": "AIzaSyD22QpgG_CAbtudFMFqAY43Lxe2CJcQ7yc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "203029952995-7usiagfd0rn8j3ilo08ahu4smptk1g5a.apps.googleusercontent.com",
+              "client_id": "576079503032-jkjutrnakal0emruc0g5k52f0i8dcb71.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "576079503032-02ahdh0scm2sd1fkep02a47jejok0n2m.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.xiao.umenoki"
+              }
             }
           ]
         }
