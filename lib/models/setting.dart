@@ -10,63 +10,53 @@ void saveSetting(List<String> settingData) async {
         'name': settingData[0],
         'email': settingData[1],
       });
-
-  // DocumentReference ref = await databaseReference.collection("settings")
-  //     .add({
-  //       'name': 'Flutter in Action',
-  //     });
-  // print(ref.documentID);
 }
 
 
-void authValidateSubmit() async {
+void authValidateSubmit(List settingData) async {
   Auth auth = Auth();
   String userId = "";
-  print(auth.currentUser());
-  auth.createUser("test@test.com", "testtest");
-  if (auth.currentUser() == null) {
+
+  if (await auth.currentUser() == null) {
     try {
-      userId = await auth.signIn("test@test.com", "testtest");
-      // print(userId);
-      createRecord(userId);
+      userId = await auth.signIn(settingData[1], settingData[2]);
+      createRecord(userId, settingData);
       return;
     }
     catch (e) {
-      // print(e);
-    }
-    if (userId.isEmpty) {
-      try {
-        userId = await auth.createUser("test@test.com", "testtest");
-      } catch (e) {
-        // print(e);
-      }
-    }
-    if (userId.isEmpty == false) {
-      try {
-        userId = await auth.signIn("test@test.com", "testtest");
-      } catch (e) {
-        // print(e);
-      }
-      createRecord(userId);
+      userId = await auth.createUser(settingData[1], settingData[2]);
+      createRecord(userId, settingData);
     }
   } else {
     userId = await auth.currentUser();
-    // print(userId);
+    createRecord(userId, settingData);
   }
 }
 
-void createRecord(String userId) async {
+void createRecord(String userId, List settingData) async {
   try {
-    await databaseReference.collection("Users")
+    await databaseReference.collection("users")
         .document(userId)
         .setData({
-      'name': 'Mastering Flutter',
-      'description': 'Programming Guide for Dart'
+      'name': settingData[0],
+      'email': settingData[1],
+      'password': settingData[2],
+      'country': settingData[3],
+      'age': settingData[4],
+      'baby_name': settingData[5],
+      'baby_gender': settingData[6],
+      'baby_skin': settingData[7],
+      'cur_week': settingData[8],
+      'due_date': settingData[9],
+      'height': settingData[10],
+      'given_birth': settingData[11],
+      'apple_watch': settingData[12],
+      'fitbit': settingData[13],
+      'notification': settingData[14],
     });
   } catch (e) {
-    print(e);
+    
   }
-
 }
 
 
