@@ -15,6 +15,11 @@ import 'package:umenoki/widgets/custom_radio.dart';
 import 'package:umenoki/models/setting.dart';
 
 class SettingPage extends StatelessWidget {
+  final List<TextEditingController> _controllers = List.generate(15, (i) => TextEditingController());
+  final _nameController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _passController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +41,7 @@ class SettingPage extends StatelessWidget {
             icon: Text("Save", style: AppTheme.title,),
             iconSize: 50.0,
             onPressed: (){
-              saveSetting();
+              saveSetting('name');
             },
           ),
         ],
@@ -70,6 +75,7 @@ class SettingPage extends StatelessWidget {
                 ),
                 InputField(
                   label: "Your name",
+                  controller: _controllers[0],
                 ),
                 InputField(
                   label: "Your e-mail",
