@@ -18,9 +18,22 @@ class SettingPage extends StatelessWidget {
   final _nameController = TextEditingController();
   final _emailController = TextEditingController();
   final _passController = TextEditingController();
+  final _countryController = TextEditingController();
+  final _ageController = TextEditingController();
+  final _babyNameController = TextEditingController();
+  final _curWeekController = TextEditingController();
+  final _dueDateController = TextEditingController();
+  final _heightController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    String _babyGender = '1';
+    String _babySkin = '0';
+    String _givenBirth = '0';
+    bool _appleWatch = false;
+    bool _fitbit = false;
+    bool _notification = false;
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Settings", style: AppTheme.title,),
@@ -40,11 +53,24 @@ class SettingPage extends StatelessWidget {
             icon: Text("Save", style: AppTheme.title,),
             iconSize: 50.0,
             onPressed: (){
-              List<String> settingData = [
+              List settingData = [
                 _nameController.text,
                 _emailController.text,
+                _passController.text,
+                _countryController.text,
+                _ageController.text,
+                _babyNameController.text,
+                _babyGender,
+                _babySkin,
+                _curWeekController.text,
+                _dueDateController.text,
+                _heightController.text,
+                _givenBirth,
+                _appleWatch,
+                _fitbit,
+                _notification,
               ];
-              authValidateSubmit();
+              authValidateSubmit(settingData);
             },
           ),
         ],
@@ -91,9 +117,11 @@ class SettingPage extends StatelessWidget {
                 ),
                 InputField(
                   label: "Country",
+                  controller: _countryController,
                 ),
                 InputField(
                   label: "Age",
+                  controller: _ageController,
                 ),
 
                 // pregnancy information
@@ -111,7 +139,8 @@ class SettingPage extends StatelessWidget {
                   ],
                 ),
                 InputField(
-                  label: "Baby's name"
+                  label: "Baby's name",
+                  controller: _babyNameController,
                 ),
 
                 Padding(
@@ -141,7 +170,7 @@ class SettingPage extends StatelessWidget {
                             "0",
                           ],
                           radioButtonValue: (value) {
-                            print(value);
+                            _babyGender = value;
                           },
                           selectedColor: AppTheme.nearlyPink,
                         ),
@@ -176,7 +205,7 @@ class SettingPage extends StatelessWidget {
                             "2",
                           ],
                           radioButtonValue: (value) {
-                            print(value);
+                            _babySkin = value;
                           },
                           selectedColor: AppTheme.nearlyPink,
                         ),
@@ -185,13 +214,16 @@ class SettingPage extends StatelessWidget {
                   ),
                 ),
                 InputField(
-                  label: "Current week"
+                  label: "Current week",
+                  controller: _curWeekController,
                 ),
                 InputField(
-                  label: "Due date"
+                  label: "Due date",
+                  controller: _dueDateController,
                 ),
                 InputField(
-                  label: "Height"
+                  label: "Height",
+                  controller: _heightController,
                 ),
 
                 Padding(
@@ -224,7 +256,7 @@ class SettingPage extends StatelessWidget {
                     "4",
                   ],
                   radioButtonValue: (value) {
-                    print(value);
+                    _givenBirth = value;
                   },
                   selectedColor: AppTheme.nearlyPink,
                 ),
@@ -253,7 +285,7 @@ class SettingPage extends StatelessWidget {
                         activeColor: AppTheme.nearlyPink,
                         value: false,
                         onChanged: (value) {
-                          print("VALUE : $value");
+                          _appleWatch = value;
                         },
                       ),
                     ],
@@ -269,7 +301,7 @@ class SettingPage extends StatelessWidget {
                         activeColor: AppTheme.nearlyPink,
                         value: false,
                         onChanged: (value) {
-                          print("VALUE : $value");
+                          _fitbit = value;
                         },
                       ),
                     ],
@@ -304,7 +336,7 @@ class SettingPage extends StatelessWidget {
                         activeColor: AppTheme.nearlyPink,
                         value: false,
                         onChanged: (value) {
-                          print("VALUE : $value");
+                          _notification = value;
                         },
                       ),
                     ],
