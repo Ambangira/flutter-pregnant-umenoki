@@ -12,8 +12,11 @@ class InputField extends StatelessWidget {
   final String label;
   final String content;
   final TextEditingController controller;
+  final bool obscureText;
 
-  InputField({this.label, this.content = '', this.controller});
+  InputField({
+    this.label, this.content = '', this.controller, this.obscureText = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +42,7 @@ class InputField extends StatelessWidget {
               height: 40.0,
               child: TextField(
                 controller: controller,
+                obscureText: obscureText,
                 style: TextStyle(
                   fontSize: 17.0,
                 ),
