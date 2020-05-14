@@ -71,6 +71,17 @@ class SettingPage extends StatelessWidget {
                 notification,
               ];
               authValidateSubmit(settingData);
+              final snackBar = SnackBar(
+                content: Text('Data is saved successfully'),
+                backgroundColor: Colors.green,
+                action: SnackBarAction(
+                  label: 'Close',
+                  onPressed: () {
+                    // Some code to undo the change.
+                  },
+                ),
+              );
+              Scaffold.of(context).showSnackBar(snackBar);
             },
           ),
         ],
