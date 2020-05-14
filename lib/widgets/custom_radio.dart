@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 ///
 /// Project name : Umenoki
 /// Description : The class is defined the custom radio group button for setting page.
@@ -21,7 +22,7 @@ class CustomRadioButton extends StatefulWidget {
     this.status,
     this.elevation = 5,
     this.customShape,
-    this.currentSelectedValue,
+    this.currentSelectedValue = '',
   })  : assert(buttonLabels.length == buttonValues.length),
         assert(buttonColor != null),
         assert(selectedColor != null);
@@ -51,7 +52,12 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
   @override
   void initState() {
     super.initState();
-    currentSelectedValue = widget.buttonValues[0];
+
+    if(widget.currentSelectedValue.isEmpty){
+      currentSelectedValue = widget.buttonValues[0];
+    }else{
+      currentSelectedValue = widget.currentSelectedValue;
+    }
   }
 
   List<Widget> buildButtonsColumn() {
