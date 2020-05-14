@@ -21,26 +21,23 @@ class CustomRadioButton extends StatefulWidget {
     this.status,
     this.elevation = 5,
     this.customShape,
+    this.currentSelectedValue,
   })  : assert(buttonLabels.length == buttonValues.length),
         assert(buttonColor != null),
         assert(selectedColor != null);
 
   final List buttonValues;
-
   final double height;
   final double width;
-
   final String status;
-
   final List<String> buttonLabels;
-
   final Function(dynamic) radioButtonValue;
-
   final Color selectedColor;
   final Color buttonColor;
   final ShapeBorder customShape;
   final bool enableShape;
   final double elevation;
+  final String currentSelectedValue;
 
   _CustomRadioButtonState createState() => _CustomRadioButtonState();
 }
@@ -59,7 +56,7 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
 
   List<Widget> buildButtonsColumn() {
     List<Widget> buttons = [];
-    for (int index = 0; index < widget.buttonLabels.length; index++) {
+    for (int index = 0; index < widget.buttonValues.length; index++) {
       var button = Expanded(
         // flex: 1,
         child: Card(
