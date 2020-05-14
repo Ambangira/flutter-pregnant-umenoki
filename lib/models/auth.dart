@@ -1,3 +1,10 @@
+///
+/// Project name : Umenoki
+/// Description : auth signin, signup, signout
+/// Author : Xiao
+/// Date : 2020-05-14
+///
+
 import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 
