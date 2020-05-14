@@ -11,7 +11,6 @@ import 'package:umenoki/main.dart';
 import 'package:umenoki/widgets/custom_input.dart';
 import 'package:umenoki/widgets/custom_switch.dart';
 import 'package:umenoki/widgets/custom_radio.dart';
-
 import 'package:umenoki/models/setting.dart';
 
 class SettingPage extends StatelessWidget {
@@ -27,13 +26,25 @@ class SettingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String babyGender = '1';
+    String babyGender = '2';
     String babySkin = '0';
     String givenBirth = '0';
     bool appleWatch = false;
     bool fitbit = false;
     bool notification = false;
 
+    getSetting().then((value){
+      nameController.text = value['name'];
+      emailController.text = value['email'];
+      passController.text = value['password'];
+      countryController.text = value['country'];
+      ageController.text = value['age'];
+      babyNameController.text = value['baby_name'];
+      curWeekController.text = value['cur_week'];
+      dueDateController.text = value['due_date'];
+      heightController.text = value['height'];
+
+    });
     return Scaffold(
       appBar: AppBar(
         title: Text("Settings", style: AppTheme.title,),
@@ -176,9 +187,9 @@ class SettingPage extends StatelessWidget {
                             "          Do not know          ",
                           ],
                           buttonValues: [
+                            "0",
                             "1",
                             "2",
-                            "0",
                           ],
                           radioButtonValue: (value) {
                             babyGender = value;
