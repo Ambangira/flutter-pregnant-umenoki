@@ -20,22 +20,22 @@ class SettingPage extends StatefulWidget {
 }
 
 class _SettingPageState extends State<SettingPage> {
-  final nameController = TextEditingController();
-  final emailController = TextEditingController();
-  final passController = TextEditingController();
-  final countryController = TextEditingController();
-  final ageController = TextEditingController();
-  final babyNameController = TextEditingController();
-  final curWeekController = TextEditingController();
-  final dueDateController = TextEditingController();
-  final heightController = TextEditingController();
+  final nameController      = TextEditingController();
+  final emailController     = TextEditingController();
+  final passController      = TextEditingController();
+  final countryController   = TextEditingController();
+  final ageController       = TextEditingController();
+  final babyNameController  = TextEditingController();
+  final curWeekController   = TextEditingController();
+  final dueDateController   = TextEditingController();
+  final heightController    = TextEditingController();
 
-  String babyGender = '2';
-  String babySkin = '0';
-  String givenBirth = '0';
-  bool appleWatch = false;
-  bool fitbit = false;
-  bool notification = false;
+  String babyGender         = '2';
+  String babySkin           = '0';
+  String givenBirth         = '0';
+  bool appleWatch           = false;
+  bool fitbit               = false;
+  bool notification         = false;
 
   Future<Map> future() {
     return Setting().getSetting();
