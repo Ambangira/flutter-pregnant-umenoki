@@ -13,41 +13,36 @@ import 'package:umenoki/widgets/custom_switch.dart';
 import 'package:umenoki/widgets/custom_radio.dart';
 import 'package:umenoki/models/setting.dart';
 
-final nameController = TextEditingController();
-final emailController = TextEditingController();
-final passController = TextEditingController();
-final countryController = TextEditingController();
-final ageController = TextEditingController();
-final babyNameController = TextEditingController();
-final curWeekController = TextEditingController();
-final dueDateController = TextEditingController();
-final heightController = TextEditingController();
+class SettingPage extends StatefulWidget {
+  
+  @override
+  _SettingPageState createState() => _SettingPageState();
+}
 
-String babyGender = '2';
-String babySkin = '0';
-String givenBirth = '0';
-bool appleWatch = false;
-bool fitbit = false;
-bool notification = false;
+class _SettingPageState extends State<SettingPage> {
+  final nameController = TextEditingController();
+  final emailController = TextEditingController();
+  final passController = TextEditingController();
+  final countryController = TextEditingController();
+  final ageController = TextEditingController();
+  final babyNameController = TextEditingController();
+  final curWeekController = TextEditingController();
+  final dueDateController = TextEditingController();
+  final heightController = TextEditingController();
 
-class SettingPage extends StatelessWidget {
+  String babyGender = '2';
+  String babySkin = '0';
+  String givenBirth = '0';
+  bool appleWatch = false;
+  bool fitbit = false;
+  bool notification = false;
+
+  Future<Map> future() {
+    return getSetting();
+  }
+
   @override
   Widget build(BuildContext context) {
-    getSetting().then((value){
-      nameController.text     = value['name'];
-      emailController.text    = value['email'];
-      passController.text     = value['password'];
-      countryController.text  = value['country'];
-      ageController.text      = value['age'];
-      babyNameController.text = value['baby_name'];
-      curWeekController.text  = value['cur_week'];
-      dueDateController.text  = value['due_date'];
-      heightController.text   = value['height'];
-      appleWatch              = value['apple_watch'];
-      fitbit                  = value['fitbit'];
-      notification            = value['notification'];
-    });
-
     return Scaffold(
       appBar: _appBarBuilder(context),
       body: _bodyBuilder(context),
@@ -111,6 +106,47 @@ class SettingPage extends StatelessWidget {
 
   // body widget builder
   Widget _bodyBuilder(BuildContext context) {
+    return FutureBuilder<Map>(
+      future: future(),
+      builder: (BuildContext context, AsyncSnapshot<Map> snapshot) {
+        if (snapshot.hasData){
+          return _settingBuilder(context, snapshot);
+        } else if (snapshot.hasError) {
+          return Center(
+            child: Text('Connect Error...'),
+          );
+        } else {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+      },
+    );
+  }
+
+  // setting widget builder
+  Widget _settingBuilder(BuildContext context, AsyncSnapshot<Map> snapshot) {
+    // text field
+    nameController.text = snapshot.data['name'];
+    emailController.text = snapshot.data['email'];
+    passController.text = snapshot.data['password'];
+    countryController.text = snapshot.data['country'];
+    ageController.text = snapshot.data['age'];
+    babyNameController.text = snapshot.data['baby_name'];
+    curWeekController.text = snapshot.data['cur_week'];
+    dueDateController.text = snapshot.data['due_date'];
+    heightController.text = snapshot.data['height'];
+
+    // radio button
+    babyGender = snapshot.data['baby_gender'];
+    babySkin = snapshot.data['baby_skin'];
+    givenBirth = snapshot.data['given_birth'];
+
+    // switch
+    appleWatch = snapshot.data['apple_watch'];
+    fitbit = snapshot.data['fitbit'];
+    notification = snapshot.data['notification'];
+
     return ListView(
       children: <Widget>[
         Image.asset(
@@ -124,19 +160,6 @@ class SettingPage extends StatelessWidget {
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: <Widget>[
-              StreamBuilder(
-                builder: (BuildContext context, AsyncSnapshot event){
-                  if(!event.hasData){
-                    return Center(
-                      child: Text('Loading...'),
-                    );
-                  }else{
-                    return Center(
-                      child: Text('OK'),
-                    );
-                  }                     
-                },
-              ),
               Row(
                 children: <Widget>[
                   ImageIcon(
