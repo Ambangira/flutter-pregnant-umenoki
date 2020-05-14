@@ -4,21 +4,20 @@ import 'package:umenoki/models/auth.dart';
 final databaseReference = Firestore.instance;
 
 void authValidateSubmit(List settingData) async {
-  Auth auth = Auth();
   String userId = "";
 
-  if (await auth.currentUser() == null) {
+  if (await Auth().currentUser() == null) {
     try {
-      userId = await auth.signIn(settingData[1], settingData[2]);
+      userId = await Auth().signIn(settingData[1], settingData[2]);
       saveSetting(userId, settingData);
       return;
     }
     catch (e) {
-      userId = await auth.createUser(settingData[1], settingData[2]);
+      userId = await Auth().createUser(settingData[1], settingData[2]);
       saveSetting(userId, settingData);
     }
   } else {
-    userId = await auth.currentUser();
+    userId = await Auth().currentUser();
     saveSetting(userId, settingData);
   }
 }
@@ -51,13 +50,12 @@ void saveSetting(String userId, List settingData) async {
 
 Future<Map> getSetting() async {
   Map data;
-  Auth auth = Auth();
   String userId = "";
 
-  if (await auth.currentUser() == null) {
+  if (await Auth().currentUser() == null) {
     // userId = await auth.signIn(settingData[1], settingData[2]);
   }else{
-    userId = await auth.currentUser();
+    userId = await Auth().currentUser();
     await databaseReference.collection("users").document(userId).get().then((value) {
       data = value.data;
     });
