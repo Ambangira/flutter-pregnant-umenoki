@@ -55,7 +55,7 @@ void createRecord(String userId, List settingData) async {
       'notification': settingData[14],
     });
   } catch (e) {
-    
+
   }
 }
 
