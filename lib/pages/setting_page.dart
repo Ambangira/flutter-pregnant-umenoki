@@ -38,7 +38,7 @@ class _SettingPageState extends State<SettingPage> {
   bool notification = false;
 
   Future<Map> future() {
-    return getSetting();
+    return Setting().getSetting();
   }
 
   @override
@@ -86,7 +86,7 @@ class _SettingPageState extends State<SettingPage> {
               fitbit,
               notification,
             ];
-            authValidateSubmit(settingData);
+            Setting().authValidateSubmit(settingData);
             final snackBar = SnackBar(
               content: Text('Data is saved successfully'),
               backgroundColor: Colors.green,
@@ -127,25 +127,25 @@ class _SettingPageState extends State<SettingPage> {
   // setting widget builder
   Widget _settingBuilder(BuildContext context, AsyncSnapshot<Map> snapshot) {
     // text field
-    nameController.text = snapshot.data['name'];
-    emailController.text = snapshot.data['email'];
-    passController.text = snapshot.data['password'];
-    countryController.text = snapshot.data['country'];
-    ageController.text = snapshot.data['age'];
+    nameController.text     = snapshot.data['name'];
+    emailController.text    = snapshot.data['email'];
+    passController.text     = snapshot.data['password'];
+    countryController.text  = snapshot.data['country'];
+    ageController.text      = snapshot.data['age'];
     babyNameController.text = snapshot.data['baby_name'];
-    curWeekController.text = snapshot.data['cur_week'];
-    dueDateController.text = snapshot.data['due_date'];
-    heightController.text = snapshot.data['height'];
+    curWeekController.text  = snapshot.data['cur_week'];
+    dueDateController.text  = snapshot.data['due_date'];
+    heightController.text   = snapshot.data['height'];
 
     // radio button
-    babyGender = snapshot.data['baby_gender'];
-    babySkin = snapshot.data['baby_skin'];
-    givenBirth = snapshot.data['given_birth'];
+    babyGender              = snapshot.data['baby_gender'];
+    babySkin                = snapshot.data['baby_skin'];
+    givenBirth              = snapshot.data['given_birth'];
 
     // switch
-    appleWatch = snapshot.data['apple_watch'];
-    fitbit = snapshot.data['fitbit'];
-    notification = snapshot.data['notification'];
+    appleWatch              = snapshot.data['apple_watch'];
+    fitbit                  = snapshot.data['fitbit'];
+    notification            = snapshot.data['notification'];
 
     return ListView(
       children: <Widget>[
