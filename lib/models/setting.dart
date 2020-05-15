@@ -18,6 +18,10 @@ abstract class BaseSetting {
 class Setting implements BaseSetting {
   final databaseReference = Firestore.instance;
   
+  ///
+  /// If auth is existed, submit.
+  /// @param List $settingData
+  /// 
   Future<void> authValidateSubmit(List settingData) async {
     String userId = "";
 
@@ -37,6 +41,11 @@ class Setting implements BaseSetting {
     }
   }
 
+  ///
+  /// If the auth is existed, update and if not existed, create
+  /// @param String $userId
+  /// @param List $settingData
+  /// 
   Future<void> saveSetting(String userId, List settingData) async {
     try {
       await databaseReference.collection("users")
@@ -63,6 +72,10 @@ class Setting implements BaseSetting {
     }
   }
 
+  ///
+  /// Get function setting data of auth from database
+  /// @return Map $data
+  /// 
   Future<Map> getSetting() async {
     Map data;
     String userId = "";
