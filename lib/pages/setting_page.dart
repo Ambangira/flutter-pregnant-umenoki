@@ -86,7 +86,9 @@ class _SettingPageState extends State<SettingPage> {
               fitbit,
               notification,
             ];
+            
             Setting().authValidateSubmit(settingData);
+
             final snackBar = SnackBar(
               content: Text('Data is saved successfully'),
               backgroundColor: Colors.green,
@@ -104,7 +106,11 @@ class _SettingPageState extends State<SettingPage> {
     );
   }
 
-  // body widget builder
+  ///
+  /// If snapshot (get setting data from firebase) has data, return setting builder and if not, loading.
+  /// @param BuildContext $context
+  /// @return Widget
+  /// 
   Widget _bodyBuilder(BuildContext context) {
     return FutureBuilder<Map>(
       future: future(),
