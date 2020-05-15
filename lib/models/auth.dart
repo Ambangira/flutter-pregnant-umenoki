@@ -1,6 +1,6 @@
 ///
 /// Project name : Umenoki
-/// Description : auth signin, signup, signout
+/// Description : auth functions like signin, signup, signout and so on
 /// Author : Xiao
 /// Date : 2020-05-14
 ///
@@ -19,11 +19,16 @@ abstract class BaseAuth {
 class Auth implements BaseAuth {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
+  ///
+  /// param String $email
+  /// @param String $password
+  /// @return String $user.uid
+  /// 
   Future<String> signIn(String email, String password) async {
     FirebaseUser user = (await _firebaseAuth.signInWithEmailAndPassword(email: email, password: password)).user;
     return user.uid;
   }
-
+  
   Future<String> createUser(String email, String password) async {
     FirebaseUser user = (await _firebaseAuth.createUserWithEmailAndPassword(email: email, password: password)).user;
     return user.uid;
@@ -37,5 +42,4 @@ class Auth implements BaseAuth {
   Future<void> signOut() async {
     return _firebaseAuth.signOut();
   }
-
 }
