@@ -7,6 +7,7 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:umenoki/models/auth.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 abstract class BaseSetting {
 
@@ -47,6 +48,11 @@ class Setting implements BaseSetting {
   /// @param List $settingData
   /// 
   Future<void> saveSetting(String userId, List settingData) async {
+    final user = await FirebaseAuth.instance.currentUser();
+    final idToken = await user.getIdToken();
+    final token = idToken.token;
+    // print(token);
+
     try {
       await databaseReference.collection("users")
           .document(userId)
@@ -81,7 +87,10 @@ class Setting implements BaseSetting {
     String userId = "";
 
     if (await Auth().currentUser() == null) {
-      // userId = await auth.signIn(settingData[1], settingData[2]);
+      userId = await Auth().signIn('xiao0216@umenoki.com', 'password');
+      await databaseReference.collection("users").document(userId).get().then((value) {
+        data = value.data;
+      });
     }else{
       userId = await Auth().currentUser();
       await databaseReference.collection("users").document(userId).get().then((value) {

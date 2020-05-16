@@ -67,4 +67,5 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     implementation 'com.android.support:multidex:1.0.3'                                     // for cloud firestore
+    implementation 'com.google.firebase:firebase-messaging:20.1.7'                          // firebase push notification
 }

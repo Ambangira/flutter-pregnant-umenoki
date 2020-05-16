@@ -14,6 +14,7 @@ import 'package:umenoki/pages/main_journey_page.dart';
 import 'package:umenoki/pages/main_me_page.dart';
 import 'package:umenoki/pages/main_nutrition_page.dart';
 import 'package:umenoki/pages/setting_page.dart';
+import 'package:umenoki/push_notifications.dart';
 
 void main() {
   return runApp(MainApp());
@@ -27,6 +28,7 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    PushNotificationsManager().init();
     return MaterialApp(
       title: _title,
       theme: ThemeData(
