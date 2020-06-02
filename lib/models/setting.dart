@@ -85,7 +85,7 @@ class Setting implements BaseSetting {
   Future<Map> getSetting() async {
     Map data;
     String userId = "";
-
+    
     if (await Auth().currentUser() == null) {
       userId = await Auth().signIn('xiao0216@umenoki.com', 'password');
       await databaseReference.collection("users").document(userId).get().then((value) {
