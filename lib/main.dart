@@ -16,6 +16,8 @@ import 'package:umenoki/pages/main_nutrition_page.dart';
 import 'package:umenoki/pages/setting_page.dart';
 import 'package:umenoki/push_notifications.dart';
 
+import 'package:umenoki/pages/welcome.dart';
+
 void main() {
   return runApp(MainApp());
 }
@@ -49,17 +51,18 @@ class MainWidget extends StatefulWidget {
 
 class _MainWidgetState extends State<MainWidget> {
   int _selectedIndex = 0;
-  int _selPage = 0;
+  String _selPage = 'my_baby';
   final myKey = new GlobalKey<_MainWidgetState>();
 
-  List<Widget> _widgetOptions = <Widget>[
-    BabyPage(),
-    MePage(),
-    NutritionPage(),
-    JourneyPage(),
-    HealthPage(),
-    SettingPage(),
-  ];
+  Map<String, Widget> _widgetOptions = {
+    'my_baby':    BabyPage(),
+    'me':         MePage(),
+    'welcome':    WelcomePage(),
+    'nutrition':  NutritionPage(),
+    'journey':    JourneyPage(),
+    'health':     HealthPage(),
+    'setting':    SettingPage(),
+  };
 
   // bottom nav bar items
   final List<BottomNavigationBarItem> _items = <BottomNavigationBarItem>[
@@ -99,14 +102,30 @@ class _MainWidgetState extends State<MainWidget> {
   void onTabTapped(int index) {
     setState(() {
       _selectedIndex = index;
-      _selPage = index;
+      switch (index) {
+        case 0:
+          _selPage = 'my_baby';
+          break;
+        case 1:
+          _selPage = 'me';
+          break;
+        case 2:
+          _selPage = 'nutrition';
+          break;
+        case 3:
+          _selPage = 'journey';
+          break;
+        case 4:
+          _selPage = 'health';
+          break;
+      }
     });
   }
 
   // setting button click event
   void onSetting(int index) {
     setState(() {
-      _selPage = 5;
+      _selPage = 'setting';
     });
   }
 
@@ -115,7 +134,7 @@ class _MainWidgetState extends State<MainWidget> {
     return Scaffold(
       key: myKey,
       body: Center(
-        child: _widgetOptions.elementAt(_selPage),
+        child: _widgetOptions[_selPage],
       ),
       
       // bottom nav bar
