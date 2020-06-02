@@ -28,7 +28,7 @@ class BabyPage extends StatelessWidget {
               color: AppTheme.nearlyDarkRed,
             ),
             onPressed: (){
-              scakey.currentState.onSetting(4);
+              scakey.currentState.onSetting('my_baby_setting');
             },
           ),
         ],
