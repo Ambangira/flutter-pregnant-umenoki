@@ -20,7 +20,7 @@ class Auth implements BaseAuth {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
   ///
-  /// param String $email
+  /// @param String $email
   /// @param String $password
   /// @return String $user.uid
   /// 
