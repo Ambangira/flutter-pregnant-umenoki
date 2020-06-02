@@ -7,15 +7,10 @@
 ///
 
 import 'package:flutter/material.dart';
-import 'package:umenoki/app_theme.dart';
-import 'package:umenoki/pages/main_baby_page.dart';
-import 'package:umenoki/pages/main_health_page.dart';
-import 'package:umenoki/pages/main_journey_page.dart';
-import 'package:umenoki/pages/main_me_page.dart';
-import 'package:umenoki/pages/main_nutrition_page.dart';
-import 'package:umenoki/pages/setting_page.dart';
-import 'package:umenoki/push_notifications.dart';
-import 'package:umenoki/pages/welcome_page.dart';
+import 'package:umenoki/src/app_theme.dart';
+import 'package:umenoki/src/models/push_notifications.dart';
+import 'package:umenoki/src/models/auth.dart';
+import 'package:umenoki/src/app_global.dart';
 
 void main() {
   return runApp(MainApp());
@@ -30,6 +25,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     PushNotificationsManager().init();
+    
     return MaterialApp(
       title: _title,
       theme: ThemeData(
@@ -50,52 +46,14 @@ class MainWidget extends StatefulWidget {
 
 class _MainWidgetState extends State<MainWidget> {
   int _selectedIndex    = 0;
-  String _selPage       = 'my_baby';
+  String _selPage       = 'sign';
+  
   final myKey           = new GlobalKey<_MainWidgetState>();
 
-  Map<String, Widget> _widgetOptions = {
-    'my_baby':          BabyPage(),
-    'me':               MePage(),
-    'welcome':          WelcomePage(),
-    'nutrition':        NutritionPage(),
-    'journey':          JourneyPage(),
-    'health':           HealthPage(),
-    'my_baby_setting':  SettingPage(),
-  };
+  final Map<String, Widget> _widgetOptions = AppGlobal().widgetOptions;
 
   // bottom nav bar items
-  final List<BottomNavigationBarItem> _items = <BottomNavigationBarItem>[
-    BottomNavigationBarItem(
-      icon: Image.asset('assets/components/tabbar_baby.png'),
-      activeIcon: Image.asset('assets/components/tabbar_baby_s.png'),
-      title: new Text('My Baby'),
-      backgroundColor: AppTheme.nearlyPink,
-    ),
-    BottomNavigationBarItem(
-      icon: Image.asset('assets/components/tabbar_me.png'),
-      activeIcon: Image.asset('assets/components/tabbar_me_s.png'),
-      title: new Text('Me'),
-      backgroundColor: AppTheme.nearlyPink,
-    ),
-    BottomNavigationBarItem(
-      icon: Image.asset('assets/components/tabbar_nutrition.png'),
-      activeIcon: Image.asset('assets/components/tabbar_nutrition_s.png'),
-      title: Text('Nutrition'),
-      backgroundColor: AppTheme.nearlyPink,
-    ),
-    BottomNavigationBarItem(
-      icon: Image.asset('assets/components/tabbar_journey.png'),
-      activeIcon: Image.asset('assets/components/tabbar_journey_s.png'),
-      title: new Text('Journey'),
-      backgroundColor: AppTheme.nearlyPink,
-    ),
-    BottomNavigationBarItem(
-      icon: Image.asset('assets/components/tabbar_health.png'),
-      activeIcon: Image.asset('assets/components/tabbar_health_s.png'),
-      title: new Text('Health'),
-      backgroundColor: AppTheme.nearlyPink,
-    ),
-  ];
+  final List<BottomNavigationBarItem> _items = AppGlobal().navItems;
 
   // tab click event
   void onTabTapped(int index) {
@@ -128,42 +86,42 @@ class _MainWidgetState extends State<MainWidget> {
     });
   }
 
+  void initState() {
+    super.initState();
+    if (Auth().currentUser() != null) {
+      _selPage = 'my_baby';
+    }
+  }
+  
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      key: myKey,
-      body: Center(
-        child: _widgetOptions[_selPage],
-      ),
-      
-      // bottom nav bar
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: onTabTapped,
-        currentIndex: _selectedIndex,
-        showUnselectedLabels: true,
-        backgroundColor: AppTheme.nearlyPink,
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: Colors.white,
-        unselectedItemColor: AppTheme.nearlyDarkRed,
-        unselectedFontSize: 14.0,
-        items: _items,
-      ),
-    );
-  }
-}
+    if (_selPage == 'sign') {               // already sign
+      return Scaffold(
+        key: myKey,
+        body: Center(
+          child: _widgetOptions[_selPage],
+        ),
+      );
+    } else {                                // not sign
+      return Scaffold(
+        key: myKey,
+        body: Center(
+          child: _widgetOptions[_selPage],
+        ),
 
-// app bar shape
-class CustomShapeBorder extends ContinuousRectangleBorder {
-  @override
-  Path getOuterPath(Rect rect, {TextDirection textDirection}) {
-    
-    Path path = Path();
-    path.lineTo(0, rect.height - 10);
-    path.quadraticBezierTo(
-    rect.width / 2, rect.height + 15, rect.width, rect.height - 10);
-    path.lineTo(rect.width, 0);
-
-    path.close();
-    return path;
+        // bottom nav bar
+        bottomNavigationBar: BottomNavigationBar(
+          onTap: onTabTapped,
+          currentIndex: _selectedIndex,
+          showUnselectedLabels: true,
+          backgroundColor: AppTheme.nearlyPink,
+          type: BottomNavigationBarType.fixed,
+          selectedItemColor: Colors.white,
+          unselectedItemColor: AppTheme.nearlyDarkRed,
+          unselectedFontSize: 14.0,
+          items: _items,
+        ),
+      );
+    }
   }
 }
