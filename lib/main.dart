@@ -15,8 +15,7 @@ import 'package:umenoki/pages/main_me_page.dart';
 import 'package:umenoki/pages/main_nutrition_page.dart';
 import 'package:umenoki/pages/setting_page.dart';
 import 'package:umenoki/push_notifications.dart';
-
-import 'package:umenoki/pages/welcome.dart';
+import 'package:umenoki/pages/welcome_page.dart';
 
 void main() {
   return runApp(MainApp());
@@ -50,18 +49,18 @@ class MainWidget extends StatefulWidget {
 }
 
 class _MainWidgetState extends State<MainWidget> {
-  int _selectedIndex = 0;
-  String _selPage = 'my_baby';
-  final myKey = new GlobalKey<_MainWidgetState>();
+  int _selectedIndex    = 0;
+  String _selPage       = 'my_baby';
+  final myKey           = new GlobalKey<_MainWidgetState>();
 
   Map<String, Widget> _widgetOptions = {
-    'my_baby':    BabyPage(),
-    'me':         MePage(),
-    'welcome':    WelcomePage(),
-    'nutrition':  NutritionPage(),
-    'journey':    JourneyPage(),
-    'health':     HealthPage(),
-    'setting':    SettingPage(),
+    'my_baby':          BabyPage(),
+    'me':               MePage(),
+    'welcome':          WelcomePage(),
+    'nutrition':        NutritionPage(),
+    'journey':          JourneyPage(),
+    'health':           HealthPage(),
+    'my_baby_setting':  SettingPage(),
   };
 
   // bottom nav bar items
@@ -123,9 +122,9 @@ class _MainWidgetState extends State<MainWidget> {
   }
 
   // setting button click event
-  void onSetting(int index) {
+  void onSetting(String key) {
     setState(() {
-      _selPage = 'setting';
+      _selPage = key;
     });
   }
 
