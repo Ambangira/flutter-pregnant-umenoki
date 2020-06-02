@@ -20,9 +20,7 @@ class AppTheme {
   static const String fontName = "Avenir";
 
   static const TextTheme textTheme = TextTheme(
-    body2: body2,
-    body1: body1,
-    title: title,
+
   );
 
   static const TextStyle title = TextStyle(
@@ -37,21 +35,5 @@ class AppTheme {
     fontSize: 17,
     color: nearlyDark,
     fontWeight: FontWeight.bold,
-  );
-
-  // body2 -> body1
-  static const TextStyle body1 = TextStyle( 
-    fontFamily: fontName,
-    fontWeight: FontWeight.w400,
-    fontSize: 17,
-    letterSpacing: -0.05,
-  );
-
-  // body1 -> body2
-  static const TextStyle body2 = TextStyle(
-    fontFamily: fontName,
-    fontWeight: FontWeight.w400,
-    fontSize: 14,
-    letterSpacing: 0.2,
   );
 }
