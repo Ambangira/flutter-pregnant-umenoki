@@ -6,8 +6,8 @@
 ///
 
 import 'package:flutter/material.dart';
-import 'package:umenoki/main.dart';
 import 'package:umenoki/src/app_theme.dart';
+import 'package:umenoki/main.dart';
 import 'package:umenoki/src/widgets/custom_shape_border.dart';
 
 /// This Widget is the main application widget.
@@ -17,7 +17,7 @@ class BabyPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Image.asset(
-            'assets/components/navigation_title.png'
+          'assets/components/navigation_title.png'
         ),
         centerTitle: true,
         shape: CustomShapeBorder(),
@@ -29,7 +29,7 @@ class BabyPage extends StatelessWidget {
               color: AppTheme.nearlyDarkRed,
             ),
             onPressed: (){
-              scakey.currentState.onSetting('my_baby_setting');
+              scakey.currentState.onSetting('my_baby_setting', 0);
             },
           ),
         ],
@@ -45,12 +45,12 @@ class BabyPage extends StatelessWidget {
           ),
           Image(
             image: AssetImage("assets/components/img_msg_box.png"),
-            width: MediaQuery.of(context).size.width*0.5,
-            height: MediaQuery.of(context).size.height*0.4,
+            width: MediaQuery.of(context).size.width * 0.5,
+            height: MediaQuery.of(context).size.height * 0.4,
             fit: BoxFit.contain,
           ),
           Container(
-            margin: EdgeInsets.only(top: MediaQuery.of(context).size.height*0.4-(MediaQuery.of(context).size.width*0.5-75)*4/3-60,left: 40, right: MediaQuery.of(context).size.width*0.5+45, bottom: MediaQuery.of(context).size.height*0.5-30, ),
+            margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.4-(MediaQuery.of(context).size.width * 0.5 - 75) * 4 / 3 - 60, left: 40, right: MediaQuery.of(context).size.width * 0.5 + 45, bottom: MediaQuery.of(context).size.height * 0.5 - 30, ),
             child:RichText(
               textAlign: TextAlign.center,
               text: TextSpan(
