@@ -1,3 +1,10 @@
+///
+/// Project name : Umenoki
+/// Description : Push notification
+/// Author : Xiao
+/// Date : 2020-05-14
+///
+
 import 'package:firebase_messaging/firebase_messaging.dart';
 
 class PushNotificationsManager {

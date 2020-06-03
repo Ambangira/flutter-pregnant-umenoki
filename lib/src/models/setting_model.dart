@@ -7,14 +7,14 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:umenoki/src/models/auth.dart';
+import 'package:umenoki/src/services/auth.dart';
 
-abstract class BaseSetting {
+abstract class BaseSettingModel {
   Future<void> saveSetting(List settingData);
   Future<Map> getSetting();
 }
 
-class Setting implements BaseSetting {
+class SettingModel implements BaseSettingModel {
   final databaseReference = Firestore.instance;
   
   ///
@@ -24,9 +24,6 @@ class Setting implements BaseSetting {
   /// 
   Future<void> saveSetting(List settingData) async {
     FirebaseUser user = await Auth().getCurrentUser();
-    // final idToken = await user.getIdToken();
-    // final token = idToken.token;
-    // print(token);
 
     try {
       await databaseReference.collection("users")

@@ -1,31 +1,30 @@
-
 ///
 /// Project name : Umenoki
-/// Description : Sign page
+/// Description : Register page
 /// Author : Xiao
 /// Date : 2020-06-02
 ///
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:umenoki/main.dart';
+import 'package:flutter/services.dart';
 import 'package:umenoki/src/app_theme.dart';
-import 'package:umenoki/src/models/validator.dart';
-import 'package:umenoki/src/models/auth.dart';
+import 'package:umenoki/src/services/auth.dart';
+import 'package:umenoki/src/services/validator.dart';
 
-class SignPage extends StatefulWidget {
+class RegisterPage extends StatefulWidget {
 
   @override
-  State<StatefulWidget> createState() => new _SignPageState();
+  State<StatefulWidget> createState() => new _RegisterPageState();
 }
 
-class _SignPageState extends State<SignPage>{
+class _RegisterPageState extends State<RegisterPage>{
   final _formKey            = new GlobalKey<FormState>();
   final _emailController    = TextEditingController();
   final _passwordController = TextEditingController();
   bool _isLoading           = false;
   String _errorMessage      = '';
-  
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -49,8 +48,9 @@ class _SignPageState extends State<SignPage>{
               showErrormessage(),
               showEmailInput(),
               showPasswordInput(),
-              showLoginButton(),
-              showRegisterLabel(),
+              showConfirmPasswordInput(),
+              showRegisterButton(),
+              showLoginLabel(),
             ],
           )
         : Center(
@@ -112,11 +112,13 @@ class _SignPageState extends State<SignPage>{
           icon: new Icon(
             Icons.lock,
             color: AppTheme.nearlyRed,
-          )
+          ),
         ),
         validator: (String value) {
           if (value.isEmpty){
             return 'Please enter your password';
+          } else if (value.length < 6) {
+            return 'Password has to be more than 6 characters';
           }
           return null;
         },
@@ -124,7 +126,35 @@ class _SignPageState extends State<SignPage>{
     );
   }
 
-  Widget showLoginButton() {
+  Widget showConfirmPasswordInput() {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 0.0),
+      child: new TextFormField(
+        maxLines: 1,
+        obscureText: true,
+        autofocus: false,
+        decoration: new InputDecoration(
+          hintText: 'Confirm password',
+          icon: new Icon(
+            Icons.lock,
+            color: AppTheme.nearlyRed,
+          ),
+        ),
+        validator: (String value) {
+          if (value.isEmpty){
+            return 'Please enter your confirm password';
+          } else if (value != _passwordController.text){
+            return 'Not match';
+          } else if (value.length < 6) {
+            return 'Password has to be more than 6 characters';
+          }
+          return null;
+        },
+      ),
+    );
+  }
+
+  Widget showRegisterButton() {
     return Padding(
       padding: EdgeInsets.fromLTRB(5.0, 45.0, 5.0, 0.0),
       child: SizedBox(
@@ -135,7 +165,7 @@ class _SignPageState extends State<SignPage>{
             borderRadius: BorderRadius.circular(10.0)
           ),
           color: AppTheme.nearlyRed,
-          child: Text('Log In',
+          child: Text('Register',
             style: TextStyle(
               fontSize: 20.0,
               color: Colors.white
@@ -146,12 +176,12 @@ class _SignPageState extends State<SignPage>{
               this.setState(() {
                 _isLoading = true;
               });
-              Auth().signIn(_emailController.text, _passwordController.text).then((value) {
+              Auth().createUser(_emailController.text, _passwordController.text).then((value) {
                 this.setState(() {
                   _isLoading = false;
                 });
                 if (value == 'Success') {
-                  scakey.currentState.onSetting('my_baby', 0);
+                  Navigator.pushNamed(context, '/mybaby');
                 } else {
                   _errorMessage = value;
                 }
@@ -163,10 +193,10 @@ class _SignPageState extends State<SignPage>{
     );
   }
 
-  Widget showRegisterLabel() {
+  Widget showLoginLabel() {
     return InkWell(
       onTap: () {
-        scakey.currentState.onSetting('register', 0);
+        Navigator.pushNamed(context, '/login');
       },
       child: Container(
         margin: EdgeInsets.symmetric(vertical: 20),
@@ -176,15 +206,15 @@ class _SignPageState extends State<SignPage>{
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Don\'t have an account ?',
+              'Already have an account ?',
               style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
             ),
             SizedBox(
               width: 10,
             ),
             Text(
-              'Register',
-                style: TextStyle(
+              'Login',
+              style: TextStyle(
                 color: AppTheme.nearlyRed,
                 fontSize: 15,
                 fontWeight: FontWeight.w600

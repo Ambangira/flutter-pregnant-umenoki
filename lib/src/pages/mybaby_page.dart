@@ -1,17 +1,21 @@
 ///
 /// Project name : Umenoki
-/// Description : This is the first page you encounter when you start the app.
+/// Description : My baby page
 /// Author : Xiao
-/// Date : 2020-04-26
+/// Date : 2020-06-02
 ///
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:umenoki/src/widgets/shape_border_widget.dart';
 import 'package:umenoki/src/app_theme.dart';
-import 'package:umenoki/main.dart';
-import 'package:umenoki/src/widgets/custom_shape_border.dart';
+class MyBabyPage extends StatefulWidget {
 
-/// This Widget is the main application widget.
-class BabyPage extends StatelessWidget {
+  @override
+  State<StatefulWidget> createState() => new _MyBabyPageState();
+}
+
+class _MyBabyPageState extends State<MyBabyPage>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +33,7 @@ class BabyPage extends StatelessWidget {
               color: AppTheme.nearlyDarkRed,
             ),
             onPressed: (){
-              scakey.currentState.onSetting('my_baby_setting', 0);
+              Navigator.pushNamed(context, '/mybaby/setting');
             },
           ),
         ],

@@ -1,26 +1,26 @@
 ///
 /// Project name : Umenoki
-/// Description : Setting page in my baby
+/// Description : My baby setting page
 /// Author : Xiao
-/// Date : 2020-04-26
+/// Date : 2020-06-02
 ///
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:umenoki/main.dart';
+import 'package:umenoki/src/models/setting_model.dart';
 import 'package:umenoki/src/app_theme.dart';
-import 'package:umenoki/src/widgets/custom_input.dart';
-import 'package:umenoki/src/widgets/custom_switch.dart';
-import 'package:umenoki/src/widgets/custom_radio.dart';
-import 'package:umenoki/src/widgets/custom_shape_border.dart';
-import 'package:umenoki/src/models/setting.dart';
+import 'package:umenoki/src/widgets/shape_border_widget.dart';
+import 'package:umenoki/src/widgets/radio_widget.dart';
+import 'package:umenoki/src/widgets/input_widget.dart';
+import 'package:umenoki/src/widgets/switch_widget.dart';
 
-class SettingPage extends StatefulWidget {
-  
+class MyBabySettingPage extends StatefulWidget {
+
   @override
-  _SettingPageState createState() => _SettingPageState();
+  State<StatefulWidget> createState() => new _MyBabySettingPageState();
 }
 
-class _SettingPageState extends State<SettingPage> {
+class _MyBabySettingPageState extends State<MyBabySettingPage>{
   final nameController      = TextEditingController();
   final emailController     = TextEditingController();
   final passController      = TextEditingController();
@@ -39,7 +39,7 @@ class _SettingPageState extends State<SettingPage> {
   bool notification         = false;
 
   Future<Map> future() {
-    return Setting().getSetting();
+    return SettingModel().getSetting();
   }
 
   @override
@@ -63,7 +63,9 @@ class _SettingPageState extends State<SettingPage> {
           Icons.arrow_back,
           color: Colors.white,
         ),
-        onPressed: () => scakey.currentState.onTabTapped(0),
+        onPressed: () {
+          Navigator.pushNamed(context, '/mybaby');
+        },
       ),
       actions: <Widget>[
         IconButton(
@@ -88,7 +90,7 @@ class _SettingPageState extends State<SettingPage> {
               notification,
             ];
             
-            Setting().saveSetting(settingData).then((value){
+            SettingModel().saveSetting(settingData).then((value){
               final snackBar = SnackBar(
                 content: Text('Data is saved successfully'),
                 backgroundColor: Colors.green,
@@ -439,4 +441,3 @@ class _SettingPageState extends State<SettingPage> {
     );
   }
 }
-

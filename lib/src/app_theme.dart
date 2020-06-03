@@ -1,8 +1,8 @@
 ///
 /// Project name : Umenoki
-/// Description : It's defined the colors, fonts, and font styles used by default in the app.
+/// Description : Theme static
 /// Author : Xiao
-/// Date : 2020-04-26
+/// Date : 2020-06-03
 ///
 
 import 'package:flutter/material.dart';

@@ -2,17 +2,20 @@
 /// Project name : Umenoki
 /// Description : Me page
 /// Author : Xiao
-/// Date : 2020-04-26
+/// Date : 2020-06-02
 ///
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:umenoki/main.dart';
-import 'package:umenoki/src/models/auth.dart';
+import 'package:umenoki/src/services/auth.dart';
 
-/// This Widget is the main application widget.
-class MePage extends StatelessWidget {
-  static const String _title = 'Umenoki';
+class MePage extends StatefulWidget {
 
+  @override
+  State<StatefulWidget> createState() => new _MePageState();
+}
+
+class _MePageState extends State<MePage>{
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,7 +33,7 @@ class MePage extends StatelessWidget {
           ),
           onPressed: () {
             Auth().signOut().then((value){
-              scakey.currentState.onSetting('sign', 0);
+              Navigator.pushNamed(context, '/login');
             });
           },
         ),

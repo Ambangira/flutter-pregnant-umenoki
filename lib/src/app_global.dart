@@ -1,66 +1,68 @@
 ///
 /// Project name : Umenoki
-/// Description : Global variables
+/// Description : Global static
 /// Author : Xiao
-/// Date : 2020-06-02
+/// Date : 2020-06-03
 ///
 
 import 'package:flutter/material.dart';
 import 'package:umenoki/src/app_theme.dart';
-import 'package:umenoki/src/pages/main_baby_page.dart';
-import 'package:umenoki/src/pages/main_health_page.dart';
-import 'package:umenoki/src/pages/main_journey_page.dart';
-import 'package:umenoki/src/pages/main_me_page.dart';
-import 'package:umenoki/src/pages/main_nutrition_page.dart';
-import 'package:umenoki/src/pages/setting_page.dart';
-import 'package:umenoki/src/pages/sign_page.dart';
-import 'package:umenoki/src/pages/register_page.dart';
-
+import 'package:umenoki/src/pages/auth_login_page.dart';
+import 'package:umenoki/src/pages/health_page.dart';
+import 'package:umenoki/src/pages/journey_page.dart';
+import 'package:umenoki/src/pages/me_page.dart';
+import 'package:umenoki/src/pages/mybaby_page.dart';
+import 'package:umenoki/src/pages/mybaby_setting_page.dart';
+import 'package:umenoki/src/pages/auth_register_page.dart';
+import 'package:umenoki/src/pages/nutrition_page.dart';
 
 class AppGlobal {
+  static String appTitle = 'Umenoki';
+
   // Bottom navigation bar items
   static List<BottomNavigationBarItem> navItems = <BottomNavigationBarItem>[
     BottomNavigationBarItem(
-      icon: Image.asset('assets/components/tabbar_baby.png'),
-      activeIcon: Image.asset('assets/components/tabbar_baby_s.png'),
-      title: new Text('My Baby'),
-      backgroundColor: AppTheme.nearlyPink,
+      icon:             Image.asset('assets/components/tabbar_baby.png'),
+      activeIcon:       Image.asset('assets/components/tabbar_baby_s.png'),
+      title:            new Text('My Baby'),
+      backgroundColor:  AppTheme.nearlyPink,
     ),
     BottomNavigationBarItem(
-      icon: Image.asset('assets/components/tabbar_me.png'),
-      activeIcon: Image.asset('assets/components/tabbar_me_s.png'),
-      title: new Text('Me'),
-      backgroundColor: AppTheme.nearlyPink,
+      icon:             Image.asset('assets/components/tabbar_me.png'),
+      activeIcon:       Image.asset('assets/components/tabbar_me_s.png'),
+      title:            new Text('Me'),
+      backgroundColor:  AppTheme.nearlyPink,
     ),
     BottomNavigationBarItem(
-      icon: Image.asset('assets/components/tabbar_nutrition.png'),
-      activeIcon: Image.asset('assets/components/tabbar_nutrition_s.png'),
-      title: Text('Nutrition'),
-      backgroundColor: AppTheme.nearlyPink,
+      icon:             Image.asset('assets/components/tabbar_nutrition.png'),
+      activeIcon:       Image.asset('assets/components/tabbar_nutrition_s.png'),
+      title:            Text('Nutrition'),
+      backgroundColor:  AppTheme.nearlyPink,
     ),
     BottomNavigationBarItem(
-      icon: Image.asset('assets/components/tabbar_journey.png'),
-      activeIcon: Image.asset('assets/components/tabbar_journey_s.png'),
-      title: new Text('Journey'),
-      backgroundColor: AppTheme.nearlyPink,
+      icon:             Image.asset('assets/components/tabbar_journey.png'),
+      activeIcon:       Image.asset('assets/components/tabbar_journey_s.png'),
+      title:            new Text('Journey'),
+      backgroundColor:  AppTheme.nearlyPink,
     ),
     BottomNavigationBarItem(
-      icon: Image.asset('assets/components/tabbar_health.png'),
-      activeIcon: Image.asset('assets/components/tabbar_health_s.png'),
-      title: new Text('Health'),
-      backgroundColor: AppTheme.nearlyPink,
+      icon:             Image.asset('assets/components/tabbar_health.png'),
+      activeIcon:       Image.asset('assets/components/tabbar_health_s.png'),
+      title:            new Text('Health'),
+      backgroundColor:  AppTheme.nearlyPink,
     ),
   ];
 
   // page widgets
   static Map<String, Widget> widgetOptions = {
-    'my_baby':          BabyPage(),
+    'login':            LoginPage(),
+    'register':         RegisterPage(),
+    'mybaby':           MyBabyPage(),
+    'mybaby/setting':   MyBabySettingPage(),
     'me':               MePage(),
     'nutrition':        NutritionPage(),
     'journey':          JourneyPage(),
     'health':           HealthPage(),
-    'my_baby_setting':  SettingPage(),
-    'sign':             SignPage(),
-    'register':         RegisterPage(),
+    'mybaby_setting':   MyBabySettingPage(),
   };
 }
