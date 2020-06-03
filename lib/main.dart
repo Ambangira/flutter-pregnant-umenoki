@@ -88,7 +88,7 @@ class _MainWidgetState extends State<MainWidget> {
 
   void initState() {
     super.initState();
-    Auth().currentUser().then((value){
+    Auth().getCurrentUser().then((value){
       if (value == null) {
         _selPage = 'sign';
       }
