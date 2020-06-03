@@ -8,11 +8,12 @@ import 'package:umenoki/src/pages/main_me_page.dart';
 import 'package:umenoki/src/pages/main_nutrition_page.dart';
 import 'package:umenoki/src/pages/setting_page.dart';
 import 'package:umenoki/src/pages/sign_page.dart';
+import 'package:umenoki/src/pages/register_page.dart';
 
 
 class AppGlobal {
   // Bottom navigation bar items
-  List<BottomNavigationBarItem> navItems = <BottomNavigationBarItem>[
+  static List<BottomNavigationBarItem> navItems = <BottomNavigationBarItem>[
     BottomNavigationBarItem(
       icon: Image.asset('assets/components/tabbar_baby.png'),
       activeIcon: Image.asset('assets/components/tabbar_baby_s.png'),
@@ -46,13 +47,14 @@ class AppGlobal {
   ];
 
   // page widgets
-  Map<String, Widget> widgetOptions = {
+  static Map<String, Widget> widgetOptions = {
     'my_baby':          BabyPage(),
     'me':               MePage(),
-    'sign':             SignPage(),
     'nutrition':        NutritionPage(),
     'journey':          JourneyPage(),
     'health':           HealthPage(),
     'my_baby_setting':  SettingPage(),
+    'sign':             SignPage(),
+    'register':         RegisterPage(),
   };
 }
