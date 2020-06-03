@@ -85,17 +85,29 @@ class Setting implements BaseSetting {
   Future<Map> getSetting() async {
     Map data;
     String userId = "";
-    
-    if (await Auth().currentUser() == null) {
-      userId = await Auth().signIn('xiao0216@umenoki.com', 'password');
-      await databaseReference.collection("users").document(userId).get().then((value) {
-        data = value.data;
-      });
-    }else{
-      userId = await Auth().currentUser();
-      await databaseReference.collection("users").document(userId).get().then((value) {
-        data = value.data;
-      });
+
+    userId = await Auth().currentUser();
+    await databaseReference.collection("users").document(userId).get().then((value) {
+      data = value.data;
+    });
+    if (data == null) {
+      data = {
+        'name': '',
+        'email': '',
+        'password': '',
+        'country': '',
+        'age': '',
+        'baby_name': '',
+        'cur_week': '',
+        'due_date': '',
+        'height': '',
+        'baby_gender': '',
+        'baby_skin': '',
+        'given_birth': '',
+        'apple_watch': false,
+        'fitbit': false,
+        'notification': false,
+      };
     }
     return data;
   }
