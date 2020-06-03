@@ -13,9 +13,10 @@ class InputField extends StatelessWidget {
   final String content;
   final TextEditingController controller;
   final bool obscureText;
+  final bool isReadOnly;
 
   InputField({
-    this.label, this.content = '', this.controller, this.obscureText = false,
+    this.label, this.content = '', this.controller, this.obscureText = false, this.isReadOnly = false
   });
 
   @override
@@ -41,6 +42,7 @@ class InputField extends StatelessWidget {
               width: 200.0,
               height: 40.0,
               child: TextField(
+                readOnly: isReadOnly,
                 controller: controller,
                 obscureText: obscureText,
                 style: TextStyle(
