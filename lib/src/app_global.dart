@@ -1,3 +1,9 @@
+///
+/// Project name : Umenoki
+/// Description : Global variables
+/// Author : Xiao
+/// Date : 2020-06-02
+///
 
 import 'package:flutter/material.dart';
 import 'package:umenoki/src/app_theme.dart';
