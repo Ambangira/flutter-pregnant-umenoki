@@ -37,7 +37,7 @@ class Auth implements BaseAuth {
     try {
       await _firebaseAuth.createUserWithEmailAndPassword(email: email, password: password);
     } catch (error) {
-      return error;
+      return error.message;
     }
     return 'Success';
   }
