@@ -10,9 +10,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:umenoki/src/models/auth.dart';
 
 abstract class BaseSetting {
-
-  Future<void> authValidateSubmit(List settingData);
-  Future<void> saveSetting(String userId, List settingData);
+  Future<void> saveSetting(List settingData);
   Future<Map> getSetting();
 }
 
@@ -20,45 +18,22 @@ class Setting implements BaseSetting {
   final databaseReference = Firestore.instance;
   
   ///
-  /// If auth is existed, submit.
-  /// @param List $settingData
-  /// 
-  Future<void> authValidateSubmit(List settingData) async {
-    String userId = "";
-
-    if (await Auth().currentUser() == null) {
-      try {
-        userId = await Auth().signIn(settingData[1], settingData[2]);
-        saveSetting(userId, settingData);
-        return;
-      }
-      catch (e) {
-        userId = await Auth().createUser(settingData[1], settingData[2]);
-        saveSetting(userId, settingData);
-      }
-    } else {
-      userId = await Auth().currentUser();
-      saveSetting(userId, settingData);
-    }
-  }
-
-  ///
   /// If the auth is existed, update and if not existed, create
   /// @param String $userId
   /// @param List $settingData
   /// 
-  Future<void> saveSetting(String userId, List settingData) async {
-    final user = await FirebaseAuth.instance.currentUser();
-    final idToken = await user.getIdToken();
-    final token = idToken.token;
+  Future<void> saveSetting(List settingData) async {
+    FirebaseUser user = await Auth().getCurrentUser();
+    // final idToken = await user.getIdToken();
+    // final token = idToken.token;
     // print(token);
 
     try {
       await databaseReference.collection("users")
-          .document(userId)
+          .document(user.uid)
           .setData({
         'name':         settingData[0],
-        'email':        settingData[1],
+        'email':        user.email,
         'password':     settingData[2],
         'country':      settingData[3],
         'age':          settingData[4],
@@ -84,16 +59,15 @@ class Setting implements BaseSetting {
   /// 
   Future<Map> getSetting() async {
     Map data;
-    String userId = "";
 
-    userId = await Auth().currentUser();
-    await databaseReference.collection("users").document(userId).get().then((value) {
+    FirebaseUser user = await Auth().getCurrentUser();
+    await databaseReference.collection("users").document(user.uid).get().then((value) {
       data = value.data;
     });
     if (data == null) {
       data = {
         'name': '',
-        'email': '',
+        'email': user.email,
         'password': '',
         'country': '',
         'age': '',
@@ -109,6 +83,7 @@ class Setting implements BaseSetting {
         'notification': false,
       };
     }
+    data['email'] = user.email;
     return data;
   }
 }
