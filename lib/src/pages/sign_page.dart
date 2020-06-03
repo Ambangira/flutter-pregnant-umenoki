@@ -1,10 +1,15 @@
 
+///
+/// Project name : Umenoki
+/// Description : Sign page
+/// Author : Xiao
+/// Date : 2020-06-02
+///
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:umenoki/main.dart';
 import 'package:umenoki/src/app_theme.dart';
-import 'package:umenoki/src/pages/register_page.dart';
 import 'package:umenoki/src/models/validator.dart';
 import 'package:umenoki/src/models/auth.dart';
 
@@ -15,10 +20,11 @@ class SignPage extends StatefulWidget {
 }
 
 class _SignPageState extends State<SignPage>{
-  final _formKey = new GlobalKey<FormState>();
+  final _formKey            = new GlobalKey<FormState>();
   final _emailController    = TextEditingController();
   final _passwordController = TextEditingController();
-  bool _autoValidate = false;
+  bool _isLoading           = false;
+  String _errorMessage      = '';
   
   @override
   Widget build(BuildContext context) {
@@ -36,15 +42,31 @@ class _SignPageState extends State<SignPage>{
       padding: EdgeInsets.all(16.0),
       child: Form(
         key: _formKey,
-        autovalidate: _autoValidate,
-        child: ListView(
-          shrinkWrap: true,
-          children: <Widget>[
-            showEmailInput(),
-            showPasswordInput(),
-            showLoginButton(),
-            showRegisterLabel(),
-          ],
+        child: !_isLoading
+        ? ListView(
+            shrinkWrap: true,
+            children: <Widget>[
+              showErrormessage(),
+              showEmailInput(),
+              showPasswordInput(),
+              showLoginButton(),
+              showRegisterLabel(),
+            ],
+          )
+        : Center(
+            child: CircularProgressIndicator(),
+          ),
+      ),
+    );
+  }
+
+  Widget showErrormessage() {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(0.0, 150.0, 0.0, 0.0),
+      child: new Text(
+        _errorMessage,
+        style: TextStyle(
+          color: Colors.red,
         ),
       ),
     );
@@ -52,7 +74,7 @@ class _SignPageState extends State<SignPage>{
 
   Widget showEmailInput() {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(0.0, 150.0, 0.0, 0.0),
+      padding: const EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 0.0),
       child: new TextFormField(
         controller: _emailController,
         maxLines: 1,
@@ -95,8 +117,6 @@ class _SignPageState extends State<SignPage>{
         validator: (String value) {
           if (value.isEmpty){
             return 'Please enter your password';
-          } else if (value.length < 6) {
-            return 'Password has to be more than 6 characters';
           }
           return null;
         },
@@ -123,8 +143,18 @@ class _SignPageState extends State<SignPage>{
           ),
           onPressed: () {
             if (_formKey.currentState.validate()) {
+              this.setState(() {
+                _isLoading = true;
+              });
               Auth().signIn(_emailController.text, _passwordController.text).then((value) {
-                scakey.currentState.onSetting('my_baby', 0);
+                this.setState(() {
+                  _isLoading = false;
+                });
+                if (value == 'Success') {
+                  scakey.currentState.onSetting('my_baby', 0);
+                } else {
+                  _errorMessage = value;
+                }
               });
             }
           },
