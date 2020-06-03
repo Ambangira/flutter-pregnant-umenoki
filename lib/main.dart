@@ -21,11 +21,10 @@ final scakey = new GlobalKey<_MainWidgetState>();
 /// This Widget is the main application widget.
 class MainApp extends StatelessWidget {
   static const String _title = 'Umenoki';
-
+  
   @override
   Widget build(BuildContext context) {
     PushNotificationsManager().init();
-    
     return MaterialApp(
       title: _title,
       theme: ThemeData(
@@ -45,20 +44,20 @@ class MainWidget extends StatefulWidget {
 }
 
 class _MainWidgetState extends State<MainWidget> {
-  int _selectedIndex    = 0;
-  String _selPage       = 'sign';
+  int _selIndex    = 0;
+  String _selPage       = 'my_baby';
   
   final myKey           = new GlobalKey<_MainWidgetState>();
 
-  final Map<String, Widget> _widgetOptions = AppGlobal().widgetOptions;
+  final Map<String, Widget> _widgetOptions = AppGlobal.widgetOptions;
 
   // bottom nav bar items
-  final List<BottomNavigationBarItem> _items = AppGlobal().navItems;
+  final List<BottomNavigationBarItem> _items = AppGlobal.navItems;
 
   // tab click event
   void onTabTapped(int index) {
     setState(() {
-      _selectedIndex = index;
+      _selIndex = index;
       switch (index) {
         case 0:
           _selPage = 'my_baby';
@@ -80,29 +79,32 @@ class _MainWidgetState extends State<MainWidget> {
   }
 
   // setting button click event
-  void onSetting(String key) {
+  void onSetting(String selPage, int index) {
     setState(() {
-      _selPage = key;
+      _selPage = selPage;
+      _selIndex = index;
     });
   }
 
   void initState() {
     super.initState();
-    if (Auth().currentUser() != null) {
-      _selPage = 'my_baby';
-    }
+    Auth().currentUser().then((value){
+      if (value == null) {
+        _selPage = 'sign';
+      }
+    });
   }
   
   @override
   Widget build(BuildContext context) {
-    if (_selPage == 'sign') {               // already sign
+    if (_selPage == 'sign' || _selPage == 'register') {               // already sign
       return Scaffold(
         key: myKey,
         body: Center(
           child: _widgetOptions[_selPage],
         ),
       );
-    } else {                                // not sign
+    } else {                                                          // not sign
       return Scaffold(
         key: myKey,
         body: Center(
@@ -112,7 +114,7 @@ class _MainWidgetState extends State<MainWidget> {
         // bottom nav bar
         bottomNavigationBar: BottomNavigationBar(
           onTap: onTabTapped,
-          currentIndex: _selectedIndex,
+          currentIndex: _selIndex,
           showUnselectedLabels: true,
           backgroundColor: AppTheme.nearlyPink,
           type: BottomNavigationBarType.fixed,
