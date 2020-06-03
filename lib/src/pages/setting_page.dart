@@ -1,6 +1,6 @@
 ///
 /// Project name : Umenoki
-/// Description :
+/// Description : Setting page in my baby
 /// Author : Xiao
 /// Date : 2020-04-26
 ///
@@ -88,7 +88,7 @@ class _SettingPageState extends State<SettingPage> {
               notification,
             ];
             
-            Setting().authValidateSubmit(settingData).then((value){
+            Setting().saveSetting(settingData).then((value){
               final snackBar = SnackBar(
                 content: Text('Data is saved successfully'),
                 backgroundColor: Colors.green,
@@ -185,6 +185,7 @@ class _SettingPageState extends State<SettingPage> {
                 controller: nameController,
               ),
               InputField(
+                isReadOnly: true,
                 label: "Your e-mail",
                 controller: emailController,
               ),
