@@ -1,4 +1,10 @@
 
+///
+/// Project name : Umenoki
+/// Description : Custom shape border widget for app bar
+/// Author : Xiao
+/// Date : 2020-06-03
+///
 
 import 'package:flutter/material.dart';
 
