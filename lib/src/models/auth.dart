@@ -10,7 +10,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 abstract class BaseAuth {
 
-  Future<String> currentUser();
+  Future<FirebaseUser> getCurrentUser();
   Future<String> signIn(String email, String password);
   Future<String> createUser(String email, String password);
   Future<void> signOut();
@@ -25,25 +25,26 @@ class Auth implements BaseAuth {
   /// @return String $user.uid
   /// 
   Future<String> signIn(String email, String password) async {
-    FirebaseUser user = (await _firebaseAuth.signInWithEmailAndPassword(email: email, password: password)).user;
-    return user.uid;
-  }
-  
-  Future<String> createUser(String email, String password) async {
-    // FirebaseUser user = (await _firebaseAuth.createUserWithEmailAndPassword(email: email, password: password)).user;
-    // return user.uid;
-    
     try {
-      await _firebaseAuth.createUserWithEmailAndPassword(email: email, password: password);
+      await _firebaseAuth.signInWithEmailAndPassword(email: email, password: password);
     } catch (error) {
       return error.message;
     }
     return 'Success';
   }
+  
+  Future<String> createUser(String email, String password) async {
+    try {
+      await _firebaseAuth.createUserWithEmailAndPassword(email: email, password: password);
+    } catch (error) {
+      return error;
+    }
+    return 'Success';
+  }
 
-  Future<String> currentUser() async {
+  Future<FirebaseUser> getCurrentUser() async {
     FirebaseUser user = await _firebaseAuth.currentUser();
-    return user != null ? user.uid : null;
+    return user != null ? user : null;
   }
 
   Future<void> signOut() async {
