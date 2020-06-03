@@ -1,49 +1,49 @@
 {
   "project_info": {
-    "project_number": "576079503032",
-    "firebase_url": "https://umenoki-9b44e.firebaseio.com",
-    "project_id": "umenoki-9b44e",
-    "storage_bucket": "umenoki-9b44e.appspot.com"
+    "project_number": "312480396113",
+    "firebase_url": "https://rafaelumenoki.firebaseio.com",
+    "project_id": "rafaelumenoki",
+    "storage_bucket": "rafaelumenoki.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:576079503032:android:5dfac8319f31d369af1e4d",
+        "mobilesdk_app_id": "1:312480396113:android:73ee5c35fbd44ea19d5970",
         "android_client_info": {
-          "package_name": "com.xiao.umenoki"
+          "package_name": "com.rafael.umenoki"
         }
       },
       "oauth_client": [
         {
-          "client_id": "576079503032-uhgdahq2n4gvcqiojjcc420np2qkbtfb.apps.googleusercontent.com",
+          "client_id": "312480396113-4i5dqq5nts4m35gi7h54nu8giqm6t03l.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.xiao.umenoki",
+            "package_name": "com.rafael.umenoki",
             "certificate_hash": "ef1b008fb0c97c46bd1292959c7f1930089e6e59"
           }
         },
         {
-          "client_id": "576079503032-jkjutrnakal0emruc0g5k52f0i8dcb71.apps.googleusercontent.com",
+          "client_id": "312480396113-hedodjn8iaac0qv64igf4oc0f6rt0k72.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD22QpgG_CAbtudFMFqAY43Lxe2CJcQ7yc"
+          "current_key": "AIzaSyAw9PP_nma_ajPwMQh-bhjw4dK4PgnX0e0"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "576079503032-jkjutrnakal0emruc0g5k52f0i8dcb71.apps.googleusercontent.com",
+              "client_id": "312480396113-hedodjn8iaac0qv64igf4oc0f6rt0k72.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "576079503032-02ahdh0scm2sd1fkep02a47jejok0n2m.apps.googleusercontent.com",
+              "client_id": "312480396113-8pgjogk2o60vai7oea1jpksn2mf8gd2o.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.xiao.umenoki"
+                "bundle_id": "com.rafael.umenoki"
               }
             }
           ]
