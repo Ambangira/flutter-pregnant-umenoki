@@ -46,6 +46,7 @@ class _RegisterPageState extends State<RegisterPage>{
         ? ListView(
             shrinkWrap: true,
             children: <Widget>[
+              showErrormessage(),
               showEmailInput(),
               showPasswordInput(),
               showConfirmPasswordInput(),
