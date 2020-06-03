@@ -1,25 +1,30 @@
 
+///
+/// Project name : Umenoki
+/// Description : Register page
+/// Author : Xiao
+/// Date : 2020-06-02
+///
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:umenoki/main.dart';
 import 'package:umenoki/src/app_theme.dart';
 import 'package:umenoki/src/models/auth.dart';
-import 'package:umenoki/src/pages/sign_page.dart';
 import 'package:umenoki/src/models/validator.dart';
 
 class RegisterPage extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() => new _RegisterPageState();
-
 }
 
 class _RegisterPageState extends State<RegisterPage>{
   final _formKey            = new GlobalKey<FormState>();
   final _emailController    = TextEditingController();
   final _passwordController = TextEditingController();
-  final bool isError        = false;
+  bool _isLoading           = false;
+  String _errorMessage      = '';
 
   @override
   Widget build(BuildContext context) {
@@ -37,15 +42,31 @@ class _RegisterPageState extends State<RegisterPage>{
       padding: EdgeInsets.all(16.0),
       child: Form(
         key: _formKey,
-        child: ListView(
-          shrinkWrap: true,
-          children: <Widget>[
-            showEmailInput(),
-            showPasswordInput(),
-            showConfirmPasswordInput(),
-            showRegisterButton(),
-            showLoginLabel(),
-          ],
+        child: !_isLoading
+        ? ListView(
+            shrinkWrap: true,
+            children: <Widget>[
+              showEmailInput(),
+              showPasswordInput(),
+              showConfirmPasswordInput(),
+              showRegisterButton(),
+              showLoginLabel(),
+            ],
+          )
+        : Center(
+            child: CircularProgressIndicator(),
+          ),
+      ),
+    );
+  }
+
+  Widget showErrormessage() {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(0.0, 150.0, 0.0, 0.0),
+      child: new Text(
+        _errorMessage,
+        style: TextStyle(
+          color: Colors.red,
         ),
       ),
     );
@@ -53,7 +74,7 @@ class _RegisterPageState extends State<RegisterPage>{
 
   Widget showEmailInput() {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(0.0, 150.0, 0.0, 0.0),
+      padding: const EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 0.0),
       child: new TextFormField(
         controller: _emailController,
         maxLines: 1,
@@ -113,7 +134,7 @@ class _RegisterPageState extends State<RegisterPage>{
         obscureText: true,
         autofocus: false,
         decoration: new InputDecoration(
-          hintText: 'Confirm assword',
+          hintText: 'Confirm password',
           icon: new Icon(
             Icons.lock,
             color: AppTheme.nearlyRed,
@@ -152,11 +173,17 @@ class _RegisterPageState extends State<RegisterPage>{
           ),
           onPressed: () {
             if (_formKey.currentState.validate()) {
+              this.setState(() {
+                _isLoading = true;
+              });
               Auth().createUser(_emailController.text, _passwordController.text).then((value) {
+                this.setState(() {
+                  _isLoading = false;
+                });
                 if (value == 'Success') {
                   scakey.currentState.onSetting('my_baby', 0);
                 } else {
-                  
+                  _errorMessage = value;
                 }
               });
             }
