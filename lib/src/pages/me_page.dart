@@ -33,7 +33,7 @@ class _MePageState extends State<MePage>{
           ),
           onPressed: () {
             Auth().signOut().then((value){
-              Navigator.pushNamed(context, '/login');
+              Navigator.pushNamed(context, '/auth/login');
             });
           },
         ),
