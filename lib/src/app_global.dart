@@ -7,14 +7,14 @@
 
 import 'package:flutter/material.dart';
 import 'package:umenoki/src/app_theme.dart';
-import 'package:umenoki/src/pages/auth_login_page.dart';
+import 'package:umenoki/src/pages/auth/auth_login_page.dart';
+import 'package:umenoki/src/pages/auth/auth_register_page.dart';
+import 'package:umenoki/src/pages/mybaby/mybaby_page.dart';
+import 'package:umenoki/src/pages/mybaby/mybaby_setting_page.dart';
 import 'package:umenoki/src/pages/health_page.dart';
 import 'package:umenoki/src/pages/journey_page.dart';
 import 'package:umenoki/src/pages/me_page.dart';
-import 'package:umenoki/src/pages/mybaby_page.dart';
-import 'package:umenoki/src/pages/mybaby_setting_page.dart';
-import 'package:umenoki/src/pages/auth_register_page.dart';
-import 'package:umenoki/src/pages/nutrition_page.dart';
+import 'package:umenoki/src/pages/nutrition/nutrition_page.dart';
 
 class AppGlobal {
   static String appTitle = 'Umenoki';
@@ -63,6 +63,5 @@ class AppGlobal {
     'nutrition':        NutritionPage(),
     'journey':          JourneyPage(),
     'health':           HealthPage(),
-    'mybaby_setting':   MyBabySettingPage(),
   };
 }

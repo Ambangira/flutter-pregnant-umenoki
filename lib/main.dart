@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:umenoki/src/app_theme.dart';
 import 'package:umenoki/src/pages/home_page.dart';
 import 'package:umenoki/src/app_global.dart';
-import 'package:umenoki/src/pages/auth_login_page.dart';
-import 'package:umenoki/src/pages/auth_register_page.dart';
+import 'package:umenoki/src/pages/auth/auth_login_page.dart';
+import 'package:umenoki/src/pages/auth/auth_register_page.dart';
 import 'package:umenoki/src/services/auth.dart';
 import 'package:umenoki/src/services/push_notifications.dart';
 
