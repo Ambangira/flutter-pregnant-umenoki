@@ -6,6 +6,7 @@
 ///
 
 import 'package:flutter/material.dart';
+import 'package:umenoki/src/app_theme.dart';
 
 class CustomSwitch extends StatefulWidget {
   final bool value;
@@ -71,10 +72,7 @@ class _CustomSwitchState extends State<CustomSwitch>
                           padding: const EdgeInsets.only(left: 4.0, right: 4.0),
                           child: Text(
                             'On',
-                            style: TextStyle(
-                                color: Colors.white70,
-                                fontWeight: FontWeight.w900,
-                                fontSize: 16.0),
+                            style: AppTheme.switchText,
                           ),
                         )
                       : Container(),
@@ -92,10 +90,7 @@ class _CustomSwitchState extends State<CustomSwitch>
                           padding: const EdgeInsets.only(left: 4.0, right: 5.0),
                           child: Text(
                             'Off',
-                            style: TextStyle(
-                                color: Colors.white70,
-                                fontWeight: FontWeight.w900,
-                                fontSize: 16.0),
+                            style: AppTheme.switchText,
                           ),
                         )
                       : Container(),

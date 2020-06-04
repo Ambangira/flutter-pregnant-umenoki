@@ -106,7 +106,7 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
                   color: currentSelectedValue == widget.buttonValues[index]
                       ? Colors.white
                       : Theme.of(context).textTheme.body1.color,
-                  fontSize: 17,
+                  fontSize: 17.0,
                 ),
               ),
             ),
@@ -166,7 +166,7 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
                   color: currentSelectedValue == widget.buttonValues[index]
                       ? Colors.white
                       : Theme.of(context).textTheme.body1.color,
-                  fontSize: 15,
+                  fontSize: 17.0,
                 ),
               ),
             ),
@@ -239,7 +239,7 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
                       color: currentSelectedValue == widget.buttonValues[index]
                           ? Colors.white
                           : Theme.of(context).textTheme.body1.color,
-                      fontSize: 17,
+                      fontSize: 17.0,
                       fontWeight: FontWeight.normal
                     ),
                   ),
@@ -303,7 +303,7 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
                     color: currentSelectedValue == widget.buttonValues[index]
                         ? Colors.white
                         : Theme.of(context).textTheme.body1.color,
-                    fontSize: 17,
+                    fontSize: 17.0,
                     fontWeight: FontWeight.normal
                   ),
                 ),

@@ -7,6 +7,7 @@
 ///
 
 import 'package:flutter/material.dart';
+import 'package:umenoki/src/app_theme.dart';
 
 class InputField extends StatelessWidget {
   final String label;
@@ -31,9 +32,7 @@ class InputField extends StatelessWidget {
               child: Text(
                 "$label",
                 textAlign: TextAlign.left,
-                style: TextStyle(
-                  fontSize: 17.0,
-                ),
+                style: AppTheme.bodyText,
               ),
             ),
             Spacer(),
@@ -45,10 +44,7 @@ class InputField extends StatelessWidget {
                 readOnly: isReadOnly,
                 controller: controller,
                 obscureText: obscureText,
-                style: TextStyle(
-                  fontSize: 17.0,
-                ),
-              
+                style: AppTheme.bodyText,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: const BorderRadius.all(

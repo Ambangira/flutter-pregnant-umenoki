@@ -17,6 +17,8 @@ class AppTheme {
   static const Color nearlyBlack = Color(0xFF623F06);
   static const Color nearlyWhite = Color(0xFFFFEAEA);
 
+  static const double iconSize = 50.0;
+
   static const String fontName = "Avenir";
 
   static const TextTheme textTheme = TextTheme(
@@ -25,15 +27,27 @@ class AppTheme {
 
   static const TextStyle title = TextStyle(
     fontFamily: fontName,
-    fontSize: 22,
+    fontSize: 22.0,
     color: Colors.white,
     fontWeight: FontWeight.bold,
   );
 
   static const TextStyle subTitle = TextStyle(
     fontFamily: fontName,
-    fontSize: 17,
+    fontSize: 17.0,
     color: nearlyDark,
     fontWeight: FontWeight.bold,
   );
+
+  static const TextStyle bodyText = TextStyle(
+    fontFamily: fontName,
+    fontSize: 17.0,
+  );
+
+  static const TextStyle switchText = TextStyle(
+    fontFamily: fontName,
+    fontSize: 16.0,
+    color: Colors.white,
+  );
+  
 }
