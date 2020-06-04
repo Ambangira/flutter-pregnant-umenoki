@@ -29,6 +29,8 @@ class MyApp extends StatelessWidget {
         '/nutrition': (BuildContext context) => new HomePage(selPage: 'nutrition', selIndex: 2,),
         '/journey': (BuildContext context) => new HomePage(selPage: 'journey', selIndex: 3,),
         '/health': (BuildContext context) => new HomePage(selPage: 'health', selIndex: 4,),
+
+        
       },
       title: AppGlobal.appTitle,
       theme: ThemeData(

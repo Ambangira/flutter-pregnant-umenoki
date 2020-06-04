@@ -64,13 +64,13 @@ class _MyBabySettingPageState extends State<MyBabySettingPage>{
           color: Colors.white,
         ),
         onPressed: () {
-          Navigator.pushNamed(context, '/mybaby');
+          Navigator.pushReplacementNamed(context, '/mybaby');
         },
       ),
       actions: <Widget>[
         IconButton(
           icon: Text("Save", style: AppTheme.title,),
-          iconSize: 50.0,
+          iconSize: AppTheme.iconSize,
           onPressed: (){
             List settingData = [
               nameController.text,
@@ -173,7 +173,7 @@ class _MyBabySettingPageState extends State<MyBabySettingPage>{
                 children: <Widget>[
                   ImageIcon(
                     AssetImage("assets/components/icn_device_info.png"),
-                    size: 50.0,
+                    size: AppTheme.iconSize,
                     color: AppTheme.nearlyDarkRed,
                   ),
                   Text(
@@ -210,7 +210,7 @@ class _MyBabySettingPageState extends State<MyBabySettingPage>{
                 children: <Widget>[
                   ImageIcon(
                     AssetImage("assets/components/icn_map_health.png"),
-                    size: 50.0,
+                    size: AppTheme.iconSize,
                     color: AppTheme.nearlyDarkRed,
                   ),
                   Text(
@@ -231,6 +231,7 @@ class _MyBabySettingPageState extends State<MyBabySettingPage>{
                   children: <Widget>[
                     Text(
                       "Baby's gender",
+                      style: AppTheme.bodyText,
                     ),
                     Spacer(),
                     Container(
@@ -267,6 +268,7 @@ class _MyBabySettingPageState extends State<MyBabySettingPage>{
                   children: <Widget>[
                     Text(
                       "Skin colour of\nthe baby's icon",
+                      style: AppTheme.bodyText,
                     ),
                     Spacer(),
                     Container(
@@ -315,6 +317,7 @@ class _MyBabySettingPageState extends State<MyBabySettingPage>{
                   children: <Widget>[
                     Text(
                       "Have you given birth before?",
+                      style: AppTheme.bodyText,
                     ),
                   ],
                 ),
@@ -349,7 +352,7 @@ class _MyBabySettingPageState extends State<MyBabySettingPage>{
                 children: <Widget>[
                   ImageIcon(
                     AssetImage("assets/components/icn_backup_restore.png"),
-                    size: 50.0,
+                    size: AppTheme.iconSize,
                     color: AppTheme.nearlyDarkRed,
                   ),
                   Text(
@@ -363,7 +366,9 @@ class _MyBabySettingPageState extends State<MyBabySettingPage>{
                 padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
                 child: Row(
                   children: <Widget>[
-                    Text("Apple Watch"),
+                    Text("Apple Watch",
+                      style: AppTheme.bodyText,
+                    ),
                     Spacer(),
                     CustomSwitch(
                       activeColor: AppTheme.nearlyPink,
@@ -379,7 +384,9 @@ class _MyBabySettingPageState extends State<MyBabySettingPage>{
                 padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
                 child: Row(
                   children: <Widget>[
-                    Text("Fitbit"),
+                    Text("Fitbit",
+                      style: AppTheme.bodyText,
+                    ),
                     Spacer(),
                     CustomSwitch(
                       activeColor: AppTheme.nearlyPink,
@@ -403,9 +410,7 @@ class _MyBabySettingPageState extends State<MyBabySettingPage>{
                     textColor: Colors.white,
                     child: Text(
                       "Add new device",
-                      style: TextStyle(
-                        fontSize: 17.0,
-                      ),
+                      style: AppTheme.bodyText,
                     ),
                   ),
                 ],
@@ -414,7 +419,9 @@ class _MyBabySettingPageState extends State<MyBabySettingPage>{
                 padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
                 child: Row(
                   children: <Widget>[
-                    Text("Notifications"),
+                    Text("Notifications",
+                      style: AppTheme.bodyText,
+                    ),
                     Spacer(),
                     CustomSwitch(
                       activeColor: AppTheme.nearlyPink,

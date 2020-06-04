@@ -181,7 +181,7 @@ class _RegisterPageState extends State<RegisterPage>{
                   _isLoading = false;
                 });
                 if (value == 'Success') {
-                  Navigator.pushNamed(context, '/mybaby');
+                  Navigator.pushReplacementNamed(context, '/mybaby');
                 } else {
                   _errorMessage = value;
                 }
@@ -196,7 +196,7 @@ class _RegisterPageState extends State<RegisterPage>{
   Widget showLoginLabel() {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, '/auth/login');
+        Navigator.pushReplacementNamed(context, '/auth/login');
       },
       child: Container(
         margin: EdgeInsets.symmetric(vertical: 20),
