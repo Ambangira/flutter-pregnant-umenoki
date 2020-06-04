@@ -21,10 +21,10 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       routes: <String, WidgetBuilder> {
-        '/login': (BuildContext context) => new LoginPage(),
-        '/register': (BuildContext context) => new RegisterPage(),
+        '/auth/login': (BuildContext context) => new LoginPage(),
+        '/auth/register': (BuildContext context) => new RegisterPage(),
         '/mybaby': (BuildContext context) => new HomePage(selPage: 'mybaby', selIndex: 0,),
-        '/mybaby/setting': (BuildContext context) => new HomePage(selPage: 'mybaby_setting', selIndex: 0,),
+        '/mybaby/setting': (BuildContext context) => new HomePage(selPage: 'mybaby/setting', selIndex: 0,),
         '/me': (BuildContext context) => new HomePage(selPage: 'me', selIndex: 1,),
         '/nutrition': (BuildContext context) => new HomePage(selPage: 'nutrition', selIndex: 2,),
         '/journey': (BuildContext context) => new HomePage(selPage: 'journey', selIndex: 3,),

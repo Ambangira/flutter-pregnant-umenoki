@@ -55,13 +55,13 @@ class AppGlobal {
 
   // page widgets
   static Map<String, Widget> widgetOptions = {
-    'login':            LoginPage(),
-    'register':         RegisterPage(),
-    'mybaby':           MyBabyPage(),
-    'mybaby/setting':   MyBabySettingPage(),
-    'me':               MePage(),
-    'nutrition':        NutritionPage(),
-    'journey':          JourneyPage(),
-    'health':           HealthPage(),
+    'auth/login':             LoginPage(),
+    'auth/register':          RegisterPage(),
+    'mybaby':                 MyBabyPage(),
+    'mybaby/setting':         MyBabySettingPage(),
+    'me':                     MePage(),
+    'nutrition':              NutritionPage(),
+    'journey':                JourneyPage(),
+    'health':                 HealthPage(),
   };
 }

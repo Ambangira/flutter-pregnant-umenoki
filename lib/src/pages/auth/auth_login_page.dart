@@ -164,7 +164,7 @@ class _LoginPageState extends State<LoginPage>{
   Widget showRegisterLabel() {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, '/register');
+        Navigator.pushNamed(context, '/auth/register');
       },
       child: Container(
         margin: EdgeInsets.symmetric(vertical: 20),
