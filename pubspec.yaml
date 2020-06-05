@@ -42,6 +42,9 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.3
 
+  # bubble tab indicator
+  bubble_tab_indicator: "^0.1.4"
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
