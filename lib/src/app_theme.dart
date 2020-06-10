@@ -16,11 +16,10 @@ class AppTheme {
   static const Color nearlyBrown = Color(0xFFEABC9E);
   static const Color nearlyBlack = Color(0xFF623F06);
   static const Color nearlyWhite = Color(0xFFFFEAEA);
+  static const Color nearlyOrange = Color(0xFFFE9E6F);
 
   static const double iconSize = 50.0;
-
   static const String fontName = "Avenir";
-
   static const TextTheme textTheme = TextTheme(
 
   );
@@ -50,4 +49,9 @@ class AppTheme {
     color: Colors.white,
   );
   
+  static const TextStyle tabText = TextStyle(
+    fontFamily: fontName,
+    fontSize: 12.0,
+    color: nearlyOrange,
+  );
 }
