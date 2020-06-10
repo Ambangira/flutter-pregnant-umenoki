@@ -11,10 +11,11 @@ import 'package:umenoki/src/pages/auth/auth_login_page.dart';
 import 'package:umenoki/src/pages/auth/auth_register_page.dart';
 import 'package:umenoki/src/pages/mybaby/mybaby_page.dart';
 import 'package:umenoki/src/pages/mybaby/mybaby_setting_page.dart';
-import 'package:umenoki/src/pages/health_page.dart';
-import 'package:umenoki/src/pages/journey_page.dart';
 import 'package:umenoki/src/pages/me_page.dart';
-import 'package:umenoki/src/pages/nutrition/nutrition_page.dart';
+import 'package:umenoki/src/pages/nutrition/nutrition_tab_page.dart';
+import 'package:umenoki/src/pages/nutrition/nutrition_subject.dart';
+import 'package:umenoki/src/pages/journey_page.dart';
+import 'package:umenoki/src/pages/health_page.dart';
 
 class AppGlobal {
   static String appTitle = 'Umenoki';
@@ -61,6 +62,7 @@ class AppGlobal {
     'mybaby/setting':         MyBabySettingPage(),
     'me':                     MePage(),
     'nutrition':              NutritionPage(),
+    'nutrition/subject':      NutritionSubjectPage(),
     'journey':                JourneyPage(),
     'health':                 HealthPage(),
   };
