@@ -14,6 +14,8 @@ import 'package:umenoki/src/pages/mybaby/mybaby_setting_page.dart';
 import 'package:umenoki/src/pages/me_page.dart';
 import 'package:umenoki/src/pages/nutrition/nutrition_tab_page.dart';
 import 'package:umenoki/src/pages/nutrition/nutrition_subject.dart';
+import 'package:umenoki/src/pages/nutrition/nutrition_subject_detail.dart';
+import 'package:umenoki/src/pages/nutrition/nutrition_subject_recipe.dart';
 import 'package:umenoki/src/pages/journey_page.dart';
 import 'package:umenoki/src/pages/health_page.dart';
 
@@ -63,6 +65,8 @@ class AppGlobal {
     'me':                     MePage(),
     'nutrition':              NutritionPage(),
     'nutrition/subject':      NutritionSubjectPage(),
+    'nutrition/subject/detail': NutritionSubjectDetailPage(),
+    'nutrition/subject/recipe': NutritionSubjectRecipePage(),
     'journey':                JourneyPage(),
     'health':                 HealthPage(),
   };

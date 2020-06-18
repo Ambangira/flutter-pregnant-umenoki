@@ -28,6 +28,8 @@ class MyApp extends StatelessWidget {
         '/me': (BuildContext context) => new HomePage(selPage: 'me', selIndex: 1,),
         '/nutrition': (BuildContext context) => new HomePage(selPage: 'nutrition', selIndex: 2,),
         '/nutrition/subject': (BuildContext context) => new HomePage(selPage: 'nutrition/subject', selIndex: 2,),
+        '/nutrition/subject/detail': (BuildContext context) => new HomePage(selPage: 'nutrition/subject/detail', selIndex: 2,),
+        '/nutrition/subject/recipe': (BuildContext context) => new HomePage(selPage: 'nutrition/subject/recipe', selIndex: 2,),
         '/journey': (BuildContext context) => new HomePage(selPage: 'journey', selIndex: 3,),
         '/health': (BuildContext context) => new HomePage(selPage: 'health', selIndex: 4,),
       },

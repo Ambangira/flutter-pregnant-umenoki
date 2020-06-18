@@ -86,10 +86,6 @@ class _NutritionPageState extends State<NutritionPage>{
               tabs: [
                 Tab(
                   child: Container(
-                    decoration: BubbleTabIndicator(
-                      indicatorColor: Color(0xFFFAC7C7),
-                      tabBarIndicatorSize: TabBarIndicatorSize.tab,
-                    ),
                     child: Align(
                       alignment: Alignment.center,
                       child: Text("Recommended", style: AppTheme.tabText,),
@@ -98,10 +94,6 @@ class _NutritionPageState extends State<NutritionPage>{
                 ),
                 Tab(
                   child: Container(
-                    decoration: BubbleTabIndicator(
-                      indicatorColor: Color(0xFFFAC7C7),
-                      tabBarIndicatorSize: TabBarIndicatorSize.tab,
-                    ),
                     child: Align(
                       alignment: Alignment.center,
                       child: Text("Nutrients", style: AppTheme.tabText,),
@@ -110,10 +102,6 @@ class _NutritionPageState extends State<NutritionPage>{
                 ),
                 Tab(
                   child: Container(
-                    decoration: BubbleTabIndicator(
-                      indicatorColor: Color(0xFFFAC7C7),
-                      tabBarIndicatorSize: TabBarIndicatorSize.tab,
-                    ),
                     child: Align(
                       alignment: Alignment.center,
                       child: Text("Symptoms", style: AppTheme.tabText,),
@@ -237,7 +225,7 @@ class _NutritionPageState extends State<NutritionPage>{
                     Navigator.pushReplacementNamed(
                       context, '/nutrition/subject',
                       arguments: {
-                        'title': 'Iron',
+                        'title': '鉄',
                         'description': 'Description',
                       }
                     );
@@ -259,7 +247,88 @@ class _NutritionPageState extends State<NutritionPage>{
   /// 
   Widget _symptomsTabPage(BuildContext context) {
     return Center(
-      child: Text('Symptoms'),
+        child: GridView.count(
+          crossAxisCount: 2,
+          padding: EdgeInsets.only(top: 70.0, left: 10.0, right: 10.0, bottom: 10.0),
+          children: <Widget>[
+            Center(
+                child: Column(
+                  children: <Widget>[
+                    ImageButton(
+                      children: <Widget>[],
+                      width: 150.0,
+                      height: 150.0,
+                      pressedImage: Image.asset(
+                        "assets/components/nutrition/img_swelling_s.png",
+                      ),
+                      unpressedImage: Image.asset("assets/components/nutrition/img_swelling.png"),
+                      onTap: () {
+                        print('Swelling');
+                      },
+                    ),
+                    Text('Swelling'),
+                  ],
+                )
+            ),
+            Center(
+                child: Column(
+                  children: <Widget>[
+                    ImageButton(
+                      children: <Widget>[],
+                      width: 150.0,
+                      height: 150.0,
+                      pressedImage: Image.asset(
+                        "assets/components/nutrition/img_anemia_s.png",
+                      ),
+                      unpressedImage: Image.asset("assets/components/nutrition/img_anemia.png"),
+                      onTap: () {
+                        print('Anemia');
+                      },
+                    ),
+                    Text('Anemia'),
+                  ],
+                )
+            ),
+            Center(
+                child: Column(
+                  children: <Widget>[
+                    ImageButton(
+                      children: <Widget>[],
+                      width: 150.0,
+                      height: 150.0,
+                      pressedImage: Image.asset(
+                        "assets/components/nutrition/img_constipation_s.png",
+                      ),
+                      unpressedImage: Image.asset("assets/components/nutrition/img_constipation.png"),
+                      onTap: () {
+                        print('Constipation');
+                      },
+                    ),
+                    Text('Constipation'),
+                  ],
+                )
+            ),
+            Center(
+                child: Column(
+                  children: <Widget>[
+                    ImageButton(
+                      children: <Widget>[],
+                      width: 150.0,
+                      height: 150.0,
+                      pressedImage: Image.asset(
+                        "assets/components/nutrition/img_diabetes_s.png",
+                      ),
+                      unpressedImage: Image.asset("assets/components/nutrition/img_diabetes.png"),
+                      onTap: () {
+                        print('Diabetes');
+                      },
+                    ),
+                    Text('Diabetes'),
+                  ],
+                )
+            ),
+          ],
+        )
     );
   }
 }
