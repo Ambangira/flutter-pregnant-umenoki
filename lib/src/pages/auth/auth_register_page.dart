@@ -1,13 +1,4 @@
-///
-/// Project name : Umenoki
-/// Description : Register page
-/// Author : Xiao
-/// Date : 2020-06-02
-///
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:umenoki/src/app_theme.dart';
 import 'package:umenoki/src/services/auth.dart';
 import 'package:umenoki/src/services/validator.dart';
@@ -159,12 +150,14 @@ class _RegisterPageState extends State<RegisterPage>{
       padding: EdgeInsets.fromLTRB(5.0, 45.0, 5.0, 0.0),
       child: SizedBox(
         height: 45.0,
-        child: RaisedButton(
-          elevation: 5.0,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10.0)
+        child: ElevatedButton(
+          style: ButtonStyle(
+            elevation: MaterialStateProperty.all(5.0),
+            shape: MaterialStateProperty.resolveWith((states) => RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0)
+            )),
+            backgroundColor: MaterialStateProperty.resolveWith((states) => AppTheme.nearlyRed),
           ),
-          color: AppTheme.nearlyRed,
           child: Text('Register',
             style: TextStyle(
               fontSize: 20.0,

@@ -1,11 +1,3 @@
-///
-/// Project name : Umenoki
-/// Description : My baby page
-/// Author : Xiao
-/// Date : 2020-06-02
-///
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:umenoki/src/widgets/shape_border_widget.dart';
 import 'package:umenoki/src/app_theme.dart';
@@ -27,9 +19,7 @@ class _MyBabyPageState extends State<MyBabyPage>{
   // app bar widget
   Widget _appBarBuilder(BuildContext context) {
     return AppBar(
-      title: Image.asset(
-        'assets/components/navigation_title.png'
-      ),
+      title: Text('me and my bby'),
       centerTitle: true,
       shape: CustomShapeBorder(),
       actions: <Widget>[
@@ -67,8 +57,9 @@ class _MyBabyPageState extends State<MyBabyPage>{
           margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.4-(MediaQuery.of(context).size.width * 0.5 - 75) * 4 / 3 - 60, left: 40, right: MediaQuery.of(context).size.width * 0.5 + 45, bottom: MediaQuery.of(context).size.height * 0.5 - 30, ),
           child:RichText(
             textAlign: TextAlign.center,
+            textScaleFactor: 1.5,
             text: TextSpan(
-              text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ',
+              text: 'I am healthy if you are healthy',
               style: TextStyle(
                 fontSize: 16,
                 color: Color(0xff3C4590),
@@ -117,11 +108,11 @@ class _MyBabyPageState extends State<MyBabyPage>{
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  'Rafinha will see you in ',
+                  'Your baby will see you in ',
                   style: TextStyle(color: Color(0xff3C4590), fontSize: 20, fontFamily: 'Avenir'),
                 ),
                 Text(
-                  '234 Days',
+                  '82 Days',
                   style: TextStyle(color: Color(0xffFD5562), fontSize: 23, fontFamily: 'Avenir'),
                 ),
               ],

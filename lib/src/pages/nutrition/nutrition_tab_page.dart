@@ -1,11 +1,3 @@
-///
-/// Project name : Umenoki
-/// Description : Nutrition page
-/// Author : Xiao
-/// Date : 2020-06-02
-///
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:umenoki/src/app_theme.dart';
 import 'package:umenoki/src/widgets/shape_border_widget.dart';

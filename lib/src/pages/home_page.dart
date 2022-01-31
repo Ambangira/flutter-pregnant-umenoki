@@ -1,8 +1,8 @@
 ///
-/// Project name : Umenoki
+/// Project name : PregSafe
 /// Description : Home page
-/// Author : Xiao
-/// Date : 2020-06-02
+/// Author : Group 3
+/// Date : 2022-01
 ///
 
 import 'package:flutter/material.dart';
@@ -31,9 +31,9 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       _selIndex = index;
       switch (index) {
-        case 0:
+        /*case 0:
           _selPage = 'mybaby';
-          break;
+          break;*/
         case 1:
           _selPage = 'me';
           break;
@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
           _selPage = 'nutrition';
           break;
         case 3:
-          _selPage = 'journey';
+          _selPage = 'mybaby';
           break;
         case 4:
           _selPage = 'health';
@@ -74,7 +74,7 @@ class _HomePageState extends State<HomePage> {
       currentIndex: _selIndex,
       showUnselectedLabels: true,
       backgroundColor: AppTheme.nearlyPink,
-      type: BottomNavigationBarType.fixed,
+      type: BottomNavigationBarType.shifting,
       selectedItemColor: Colors.white,
       unselectedItemColor: AppTheme.nearlyDarkRed,
       unselectedFontSize: 14.0,

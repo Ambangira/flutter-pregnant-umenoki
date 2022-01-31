@@ -1,11 +1,3 @@
-///
-/// Project name : Umenoki
-/// Description : Sign page
-/// Author : Xiao
-/// Date : 2020-06-02
-///
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:umenoki/src/app_theme.dart';
 import 'package:umenoki/src/services/validator.dart';
@@ -127,12 +119,8 @@ class _LoginPageState extends State<LoginPage>{
       padding: EdgeInsets.fromLTRB(5.0, 45.0, 5.0, 0.0),
       child: SizedBox(
         height: 45.0,
-        child: RaisedButton(
-          elevation: 5.0,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10.0)
-          ),
-          color: AppTheme.nearlyRed,
+        child: ElevatedButton(
+          
           child: Text('Log In',
             style: TextStyle(
               fontSize: 20.0,

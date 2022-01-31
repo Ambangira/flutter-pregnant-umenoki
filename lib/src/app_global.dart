@@ -20,38 +20,33 @@ import 'package:umenoki/src/pages/journey_page.dart';
 import 'package:umenoki/src/pages/health_page.dart';
 
 class AppGlobal {
-  static String appTitle = 'Umenoki';
+  static String appTitle = 'PregSafe';
 
   // Bottom navigation bar items
   static List<BottomNavigationBarItem> navItems = <BottomNavigationBarItem>[
-    BottomNavigationBarItem(
-      icon:             Image.asset('assets/components/tabbar_baby.png'),
-      activeIcon:       Image.asset('assets/components/tabbar_baby_s.png'),
-      title:            new Text('My Baby'),
-      backgroundColor:  AppTheme.nearlyPink,
-    ),
+
     BottomNavigationBarItem(
       icon:             Image.asset('assets/components/tabbar_me.png'),
       activeIcon:       Image.asset('assets/components/tabbar_me_s.png'),
-      title:            new Text('Me'),
+      label:            ('Me'),
       backgroundColor:  AppTheme.nearlyPink,
     ),
     BottomNavigationBarItem(
       icon:             Image.asset('assets/components/tabbar_nutrition.png'),
       activeIcon:       Image.asset('assets/components/tabbar_nutrition_s.png'),
-      title:            Text('Nutrition'),
+      label:            ('Nutrition'),
       backgroundColor:  AppTheme.nearlyPink,
     ),
     BottomNavigationBarItem(
       icon:             Image.asset('assets/components/tabbar_journey.png'),
       activeIcon:       Image.asset('assets/components/tabbar_journey_s.png'),
-      title:            new Text('Journey'),
+      label:            ('Journey'),
       backgroundColor:  AppTheme.nearlyPink,
     ),
     BottomNavigationBarItem(
       icon:             Image.asset('assets/components/tabbar_health.png'),
       activeIcon:       Image.asset('assets/components/tabbar_health_s.png'),
-      title:            new Text('Health'),
+      label:            ('Health'),
       backgroundColor:  AppTheme.nearlyPink,
     ),
   ];

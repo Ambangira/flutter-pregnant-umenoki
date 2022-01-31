@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:umenoki/src/app_theme.dart';
 import 'package:umenoki/src/pages/home_page.dart';
@@ -9,17 +10,30 @@ import 'package:umenoki/src/services/auth.dart';
 import 'package:umenoki/src/services/push_notifications.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(PregSafe());
 }
 
-class MyApp extends StatelessWidget {
+class PregSafe extends StatefulWidget {
+
+  @override
+  MyAppState createState() => MyAppState();
+}
+
+class MyAppState extends State<PregSafe> with WidgetsBindingObserver {
+  // Define an async function to initialize FlutterFire
+  void initializeFlutterFire() async {
+      // Wait for Firebase to initialize and set `_initialized` state to true
+      Firebase.initializeApp();
+  }
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    PushNotificationsManager().init();
+    //PushNotificationsManager().init();
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+
       routes: <String, WidgetBuilder> {
         '/auth/login': (BuildContext context) => new LoginPage(),
         '/auth/register': (BuildContext context) => new RegisterPage(),
@@ -39,9 +53,9 @@ class MyApp extends StatelessWidget {
         textTheme: AppTheme.textTheme,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: FutureBuilder<FirebaseUser>(
+      home: FutureBuilder<User>(
         future: Auth().getCurrentUser(),
-        builder: (BuildContext context, AsyncSnapshot<FirebaseUser> snapshot) {
+        builder: (BuildContext context, AsyncSnapshot<User> snapshot) {
           if (snapshot.hasData) {
             return HomePage(selPage: 'mybaby', selIndex: 0,);
           }
@@ -49,5 +63,10 @@ class MyApp extends StatelessWidget {
         }
       ),
     );
+  }
+  @override
+  void initState() {
+    super.initState();
+    initializeFlutterFire();
   }
 }

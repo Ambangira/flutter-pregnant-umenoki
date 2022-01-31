@@ -135,17 +135,20 @@ class _NutritionSubjectDetailPageState extends State<NutritionSubjectDetailPage>
               ),
               ButtonTheme(
                 height: 50.0,
-                child: FlatButton(
-                  shape: RoundedRectangleBorder(
+                child: TextButton(
+                  style: ButtonStyle(
+                    shape: MaterialStateProperty.resolveWith((states) => RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(25.0),
-                      side: BorderSide(color: Color(0xffFEA4B7))),
-                  color: Color(0xFFFFF4F4),
-                  textColor: Color(0xffFE9E6F),
+                      side: BorderSide(color: Color(0xffFEA4B7)),
+                    )),
+                    foregroundColor: MaterialStateProperty.resolveWith((states) => Color(0xffFE9E6F)),
+                    backgroundColor: MaterialStateProperty.resolveWith((states) => Color(0xFFFFF4F4)),
+                  ),
                   onPressed: () {
                     FocusScope.of(context).requestFocus(FocusNode());
                   },
                   child: Text(
-                    "全て",
+                    "Mark",
                     style: TextStyle(
                       fontSize: 16.0,
                     ),

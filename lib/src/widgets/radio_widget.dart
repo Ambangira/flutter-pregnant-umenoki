@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 ///
 /// Project name : Umenoki
 /// Description : The class is defined the custom radio group button for setting page.
@@ -105,7 +104,7 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
                 style: TextStyle(
                   color: currentSelectedValue == widget.buttonValues[index]
                       ? Colors.white
-                      : Theme.of(context).textTheme.body1.color,
+                      : Theme.of(context).textTheme.bodyText2.color,
                   fontSize: 17.0,
                 ),
               ),
@@ -165,7 +164,7 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
                 style: TextStyle(
                   color: currentSelectedValue == widget.buttonValues[index]
                       ? Colors.white
-                      : Theme.of(context).textTheme.body1.color,
+                      : Theme.of(context).textTheme.bodyText2.color,
                   fontSize: 17.0,
                 ),
               ),
@@ -238,7 +237,7 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
                     style: TextStyle(
                       color: currentSelectedValue == widget.buttonValues[index]
                           ? Colors.white
-                          : Theme.of(context).textTheme.body1.color,
+                          : Theme.of(context).textTheme.bodyText2.color,
                       fontSize: 17.0,
                       fontWeight: FontWeight.normal
                     ),
@@ -302,7 +301,7 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
                   style: TextStyle(
                     color: currentSelectedValue == widget.buttonValues[index]
                         ? Colors.white
-                        : Theme.of(context).textTheme.body1.color,
+                        : Theme.of(context).textTheme.bodyText2.color,
                     fontSize: 17.0,
                     fontWeight: FontWeight.normal
                   ),

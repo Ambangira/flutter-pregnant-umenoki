@@ -1,8 +1,8 @@
 ///
-/// Project name : Umenoki
+/// Project name : PregSafe
 /// Description : settings model
-/// Author : Xiao
-/// Date : 2020-05-14
+/// Author : Group 3
+/// Date : 2022-01
 ///
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -15,7 +15,7 @@ abstract class BaseSettingModel {
 }
 
 class SettingModel implements BaseSettingModel {
-  final databaseReference = Firestore.instance;
+  final databaseReference = FirebaseFirestore.instance;
   
   ///
   /// If the auth is existed, update and if not existed, create
@@ -23,12 +23,12 @@ class SettingModel implements BaseSettingModel {
   /// @param List $settingData
   /// 
   Future<void> saveSetting(List settingData) async {
-    FirebaseUser user = await Auth().getCurrentUser();
+    User user = await Auth().getCurrentUser();
 
     try {
       await databaseReference.collection("users")
-          .document(user.uid)
-          .setData({
+          .doc(user.uid)
+          .set({
         'name':         settingData[0],
         'email':        user.email,
         'password':     settingData[2],
@@ -57,9 +57,9 @@ class SettingModel implements BaseSettingModel {
   Future<Map> getSetting() async {
     Map data;
 
-    FirebaseUser user = await Auth().getCurrentUser();
-    await databaseReference.collection("users").document(user.uid).get().then((value) {
-      data = value.data;
+    User user = await Auth().getCurrentUser();
+    await databaseReference.collection("users").doc(user.uid).get().then((value) {
+      data = value.data as Map;
     });
     if (data == null) {
       data = {

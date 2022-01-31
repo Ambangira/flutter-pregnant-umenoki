@@ -1,11 +1,3 @@
-///
-/// Project name : Umenoki
-/// Description : My baby setting page
-/// Author : Xiao
-/// Date : 2020-06-02
-///
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:umenoki/src/models/setting_model.dart';
 import 'package:umenoki/src/app_theme.dart';
@@ -101,7 +93,7 @@ class _MyBabySettingPageState extends State<MyBabySettingPage>{
                   },
                 ),
               );
-              Scaffold.of(context).showSnackBar(snackBar);
+              ScaffoldMessenger.of(context).showSnackBar(snackBar);
             });
           },
         ),
@@ -401,13 +393,16 @@ class _MyBabySettingPageState extends State<MyBabySettingPage>{
               Row(
                 children: <Widget>[
                   Spacer(),
-                  RaisedButton(
-                    shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(35.0),
-                      side: BorderSide(color: Colors.red)),
+                  ElevatedButton(
+                    style: ButtonStyle(
+                      foregroundColor: MaterialStateProperty.resolveWith((states) => Colors.white),
+                      shape: MaterialStateProperty.resolveWith((states) => RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(35.0),
+                        side:  BorderSide(color: Colors.red)
+                      )),
+                      backgroundColor: MaterialStateProperty.resolveWith((states) => AppTheme.nearlyPink),
+                    ),
                     onPressed: () {},
-                    color: AppTheme.nearlyPink,
-                    textColor: Colors.white,
                     child: Text(
                       "Add new device",
                       style: AppTheme.bodyText,
