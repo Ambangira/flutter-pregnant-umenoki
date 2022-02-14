@@ -49,7 +49,7 @@ class MyAppState extends State<PregSafe> with WidgetsBindingObserver {
       },
       title: AppGlobal.appTitle,
       theme: ThemeData(
-        primaryColor: AppTheme.nearlyPink,
+        primaryColor: AppTheme.nearlyblue,
         textTheme: AppTheme.textTheme,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),

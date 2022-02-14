@@ -8,7 +8,7 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  static const Color nearlyPink = Color(0xFFF37D86);                  // bottom nav bar background color
+  static const Color nearlyblue = Color(0xFFF37D86);                  // bottom nav bar background color
   static const Color nearlyDarkRed = Color(0xFF9F2F3A);               // bottom nav bar text color
   static const Color nearlyRed = Color(0xFFF37D86);
   static const Color nearlyDark = Color(0xFF707070);

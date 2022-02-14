@@ -19,7 +19,7 @@ class _MyBabyPageState extends State<MyBabyPage>{
   // app bar widget
   Widget _appBarBuilder(BuildContext context) {
     return AppBar(
-      title: Text('me and my bby'),
+      title: Text('My BABY'),
       centerTitle: true,
       shape: CustomShapeBorder(),
       actions: <Widget>[

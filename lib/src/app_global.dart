@@ -24,30 +24,36 @@ class AppGlobal {
 
   // Bottom navigation bar items
   static List<BottomNavigationBarItem> navItems = <BottomNavigationBarItem>[
+    BottomNavigationBarItem(
+        icon:   Image.asset('assets/components/immunization2.png'),
 
+      label:  ('Immunize'),
+      backgroundColor: AppTheme.nearlyblue,
+
+    ),
     BottomNavigationBarItem(
       icon:             Image.asset('assets/components/tabbar_me.png'),
       activeIcon:       Image.asset('assets/components/tabbar_me_s.png'),
       label:            ('Me'),
-      backgroundColor:  AppTheme.nearlyPink,
+      backgroundColor:  AppTheme.nearlyblue,
     ),
     BottomNavigationBarItem(
       icon:             Image.asset('assets/components/tabbar_nutrition.png'),
       activeIcon:       Image.asset('assets/components/tabbar_nutrition_s.png'),
       label:            ('Nutrition'),
-      backgroundColor:  AppTheme.nearlyPink,
+      backgroundColor:  AppTheme.nearlyblue,
     ),
     BottomNavigationBarItem(
       icon:             Image.asset('assets/components/tabbar_journey.png'),
       activeIcon:       Image.asset('assets/components/tabbar_journey_s.png'),
       label:            ('Journey'),
-      backgroundColor:  AppTheme.nearlyPink,
+      backgroundColor:  AppTheme.nearlyblue,
     ),
     BottomNavigationBarItem(
       icon:             Image.asset('assets/components/tabbar_health.png'),
       activeIcon:       Image.asset('assets/components/tabbar_health_s.png'),
       label:            ('Health'),
-      backgroundColor:  AppTheme.nearlyPink,
+      backgroundColor:  AppTheme.nearlyblue,
     ),
   ];
 

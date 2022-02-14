@@ -31,9 +31,9 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       _selIndex = index;
       switch (index) {
-        /*case 0:
+        case 0:
           _selPage = 'mybaby';
-          break;*/
+          break;
         case 1:
           _selPage = 'me';
           break;
@@ -73,7 +73,7 @@ class _HomePageState extends State<HomePage> {
       onTap: onTabTapped,
       currentIndex: _selIndex,
       showUnselectedLabels: true,
-      backgroundColor: AppTheme.nearlyPink,
+      backgroundColor: AppTheme.nearlyblue,
       type: BottomNavigationBarType.shifting,
       selectedItemColor: Colors.white,
       unselectedItemColor: AppTheme.nearlyDarkRed,

@@ -246,7 +246,7 @@ class _MyBabySettingPageState extends State<MyBabySettingPage>{
                         radioButtonValue: (value) {
                           babyGender = value;
                         },
-                        selectedColor: AppTheme.nearlyPink,
+                        selectedColor: AppTheme.nearlyblue,
                         currentSelectedValue: babyGender,
                       ),
                     ),
@@ -283,7 +283,7 @@ class _MyBabySettingPageState extends State<MyBabySettingPage>{
                         radioButtonValue: (value) {
                           babySkin = value;
                         },
-                        selectedColor: AppTheme.nearlyPink,
+                        selectedColor: AppTheme.nearlyblue,
                         currentSelectedValue: babySkin,
                       ),
                     ),
@@ -336,7 +336,7 @@ class _MyBabySettingPageState extends State<MyBabySettingPage>{
                 radioButtonValue: (value) {
                   givenBirth = value;
                 },
-                selectedColor: AppTheme.nearlyPink,
+                selectedColor: AppTheme.nearlyblue,
                 currentSelectedValue: givenBirth,
               ),
               // devices
@@ -363,7 +363,7 @@ class _MyBabySettingPageState extends State<MyBabySettingPage>{
                     ),
                     Spacer(),
                     CustomSwitch(
-                      activeColor: AppTheme.nearlyPink,
+                      activeColor: AppTheme.nearlyblue,
                       value: appleWatch,
                       onChanged: (value) {
                         appleWatch = value;
@@ -381,7 +381,7 @@ class _MyBabySettingPageState extends State<MyBabySettingPage>{
                     ),
                     Spacer(),
                     CustomSwitch(
-                      activeColor: AppTheme.nearlyPink,
+                      activeColor: AppTheme.nearlyblue,
                       value: fitbit,
                       onChanged: (value) {
                         fitbit = value;
@@ -400,7 +400,7 @@ class _MyBabySettingPageState extends State<MyBabySettingPage>{
                         borderRadius: BorderRadius.circular(35.0),
                         side:  BorderSide(color: Colors.red)
                       )),
-                      backgroundColor: MaterialStateProperty.resolveWith((states) => AppTheme.nearlyPink),
+                      backgroundColor: MaterialStateProperty.resolveWith((states) => AppTheme.nearlyblue),
                     ),
                     onPressed: () {},
                     child: Text(
@@ -419,7 +419,7 @@ class _MyBabySettingPageState extends State<MyBabySettingPage>{
                     ),
                     Spacer(),
                     CustomSwitch(
-                      activeColor: AppTheme.nearlyPink,
+                      activeColor: AppTheme.nearlyblue,
                       value: notification,
                       onChanged: (value) {
                         notification = value;
